@@ -37,7 +37,8 @@ jobs:
         continue-on-error: true
 
       - name: Build the Docker image
-        run: docker build --progress plain -t ${{ env.IMAGE }}:${{ env.TAG }} --cache-from ${{ env.IMAGE }}:${{ env.TAG }} -f Dockerfile.${{ env.BASE }} ./windows
+        run: docker build --progress plain -t ${{ env.IMAGE }}:${{ env.TAG }} --cache-from ${{ env.IMAGE }}:${{ env.TAG }} -f Dockerfile.${{ env.BASE }} .
+        working-directory: ./windows
 
       - name: Test run
         run: docker-compose --file docker-compose.test.yml run sut
