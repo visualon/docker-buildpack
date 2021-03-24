@@ -45,7 +45,7 @@ jobs:
 
       - name: Log into registry
         if: github.ref == 'refs/heads/main'
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u visualon --password-stdin
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
       - name: Publish the Docker image
         if: github.ref == 'refs/heads/main'
@@ -90,7 +90,7 @@ jobs:
 
       - name: Log into registry
         if: github.ref == 'refs/heads/main'
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u visualon --password-stdin
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
       - name: Publish the Docker image
         if: github.ref == 'refs/heads/main'
@@ -121,7 +121,7 @@ jobs:
           command: docker-config
 
       - name: Log into registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u visualon --password-stdin
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
       - name: Build the Docker multiarch manifest
         run: docker buildx imagetools create -t ${{ env.IMAGE }} ${{ env.IMAGE }}:linux ${{ env.IMAGE }}:windows-2019
