@@ -22,5 +22,8 @@ RUN c:\tools\init.cmd
 # renovate: datasource=github-releases lookupName=kiennq/scoop-better-shimexe versioning=gradle
 RUN install-tool shim 2.2.1
 
+# renovate: datasource=github-releases lookupName=git-for-windows/git
+RUN install-tool git v2.31.0.windows.1
+
 # Define the entry point for the docker container.
 CMD ["pwsh"]

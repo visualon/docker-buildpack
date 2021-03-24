@@ -1,10 +1,21 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["visualon/renovate-config", "visualon/renovate-config:automergePatch"],
+  "extends": [
+    "visualon/renovate-config",
+    "visualon/renovate-config:automergePatch"
+  ],
   "labels": ["deps"],
   "digest": {
     "extends": ["schedule:daily"]
   },
+  "packageRules": [
+    {
+      "packageNames": ["git"],
+      "matchPaths": ["windows/**"],
+      "versioning": "loose",
+      "allowedVersions": "/^v\\d+\\.\\d+\\.\\d+\\.windows\\.\\d+$/"
+    }
+  ],
   "regexManagers": [
     {
       "fileMatch": ["(^|/|\\.)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
