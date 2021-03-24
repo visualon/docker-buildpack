@@ -41,7 +41,7 @@ jobs:
         working-directory: ./windows
 
       - name: Test run
-        run: docker-compose --file docker-compose.test.yml run sut
+        run: docker-compose --verbose --file docker-compose.test.yml run sut
         working-directory: ./windows
         env:
           IMAGE: ${{ env.IMAGE }}:${{ env.TAG }}
