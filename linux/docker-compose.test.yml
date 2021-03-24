@@ -3,3 +3,5 @@ services:
   sut:
     image: "${IMAGE}"
     command: git --version
+    stdin_open: false
+    tty: false
