@@ -14,10 +14,6 @@ jobs:
 
     timeout-minutes: 60
 
-    defaults:
-      run:
-        shell: bash
-
     strategy:
       matrix:
         os: [2019]
@@ -37,7 +33,7 @@ jobs:
         continue-on-error: true
 
       - name: Build the Docker image
-        run: docker build --progress plain -t ${{ env.IMAGE }}:${{ env.TAG }} --cache-from ${{ env.IMAGE }}:${{ env.TAG }} -f Dockerfile.${{ env.BASE }} .
+        run: docker build --progress plain -t ${{ env.IMAGE }}:${{ env.TAG }} --cache-from ${{ env.IMAGE }} --cache-from ${{ env.IMAGE }}:${{ env.TAG }} -f Dockerfile.${{ env.BASE }} .
         working-directory: ./windows
 
       - name: Test run
@@ -62,6 +58,8 @@ jobs:
           if [ -f push.sh ]; then
             ./push.sh
           fi
+          
+        shell: bash
         working-directory: ./windows
 
   linux:
