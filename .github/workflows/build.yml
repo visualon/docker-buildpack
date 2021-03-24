@@ -38,7 +38,7 @@ jobs:
 
       - name: Test run
         # run: docker-compose --verbose --file docker-compose.test.yml run sut
-        run: docker run --rm ${{ env.IMAGE }} git --version
+        run: ./test.cmd
         working-directory: ./windows
         env:
           IMAGE: ${{ env.IMAGE }}:${{ env.TAG }}
