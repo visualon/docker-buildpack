@@ -1,0 +1,128 @@
+name: build
+
+on:
+  push:
+
+env:
+  OWNER: ${{ github.repository_owner }}
+  FILE: buildpack
+  IMAGE: ghcr.io/${{ github.repository_owner }}/buildpack
+
+jobs:
+  windows:
+    runs-on: windows-${{ matrix.os }}
+
+    timeout-minutes: 60
+
+    defaults:
+      run:
+        shell: bash
+
+    strategy:
+      matrix:
+        os: [2019]
+
+    env:
+      BASE: ${{ matrix.os }}
+      TAG: windows-${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v2.3.4
+
+      # ignore not yet existing images
+      - name: Fetch the Docker image
+        run: |
+          docker pull ${{ env.IMAGE }}
+          docker pull ${{ env.IMAGE }}:${{ env.TAG }}
+        continue-on-error: true
+
+      - name: Build the Docker image
+        run: docker build --progress plain -t ${{ env.IMAGE }}:${{ env.TAG }} --cache-from ${{ env.IMAGE }}:${{ env.TAG }} -f Dockerfile.${{ env.BASE }} ./windows
+
+      - name: Test run
+        run: docker-compose --file docker-compose.test.yml run sut
+        working-directory: ./windows
+        env:
+          IMAGE: ${{ env.IMAGE }}:${{ env.TAG }}
+
+      - name: Log into registry
+        if: github.ref == 'refs/heads/main'
+        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viceice --password-stdin
+
+      - name: Publish the Docker image
+        if: github.ref == 'refs/heads/main'
+        run: docker push ${{ env.IMAGE }}
+
+      - name: Publish the Docker image tags
+        if: github.ref == 'refs/heads/main'
+        run: |
+          if [ -f push.sh ]; then
+            ./push.sh
+          fi
+        working-directory: ./windows
+
+  linux:
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 30
+
+    env:
+      TAG: linux
+
+    steps:
+      - uses: actions/checkout@v2.3.4
+
+      - name: docker-config
+        uses: renovatebot/internal-tools@v1.5.2
+        with:
+          command: docker-config
+
+      - name: Build the Docker image
+        run: docker buildx bake --progress plain test
+
+      - name: Test run
+        run: docker-compose --file docker-compose.test.yml run sut
+        working-directory: ./linux
+        env:
+          IMAGE: ${{ env.IMAGE }}:${{ env.TAG }}
+
+      - name: Log into registry
+        if: github.ref == 'refs/heads/main'
+        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viceice --password-stdin
+
+      - name: Publish the Docker image
+        if: github.ref == 'refs/heads/main'
+        run: docker buildx bake build
+
+      - name: Publish the Docker image tags
+        if: github.ref == 'refs/heads/main'
+        run: |
+          if [ -f push.sh ]; then
+            ./push.sh
+          fi
+        working-directory: ./linux
+
+  multi-arch:
+    needs: [linux, windows]
+
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v2.3.4
+
+      - name: docker-config
+        uses: renovatebot/internal-tools@v1.5.2
+        with:
+          command: docker-config
+
+      - name: Log into registry
+        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viceice --password-stdin
+
+      - name: Build the Docker multiarch manifest
+        run: docker buildx imagetools create -t ${{ env.IMAGE }} ${{ env.IMAGE }}:linux ${{ env.IMAGE }}:windows-2019
+
+      - name: Inspect the Docker multiarch manifest
+        run: docker buildx imagetools inspect ${{ env.IMAGE }}
