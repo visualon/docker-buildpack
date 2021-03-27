@@ -23,7 +23,7 @@ RUN c:\tools\init.cmd
 RUN install-tool shim 2.2.1
 
 # renovate: datasource=github-releases lookupName=git-for-windows/git
-RUN install-tool git v2.31.0.windows.1
+RUN install-tool git v2.31.1.windows.1
 
 # Define the entry point for the docker container.
 ENTRYPOINT [ "cmd", "/C"]
