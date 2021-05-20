@@ -15,7 +15,7 @@
       "matchPaths": ["windows/**"],
       "versioning": "loose",
       "allowedVersions": "/^v\\d+\\.\\d+\\.\\d+\\.windows\\.\\d+$/"
-    }
+    },
     {
       "description": "Automerge buildpack minor updates",
       "matchPackageNames": ["ghcr.io/containerbase/buildpack"],
