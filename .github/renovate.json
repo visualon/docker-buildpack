@@ -10,10 +10,16 @@
   },
   "packageRules": [
     {
-      "packageNames": ["git"],
+      "description": "Override git versioning for windows"
+      "matchPackageNames": ["git"],
       "matchPaths": ["windows/**"],
       "versioning": "loose",
       "allowedVersions": "/^v\\d+\\.\\d+\\.\\d+\\.windows\\.\\d+$/"
+    }
+    {
+      "description": "Automerge buildpack minor updates"
+      "matchPackageNames": ["ghcr.io/containerbase/buildpack"],
+      "extends": [":automergeMinor"]
     }
   ],
   "regexManagers": [
