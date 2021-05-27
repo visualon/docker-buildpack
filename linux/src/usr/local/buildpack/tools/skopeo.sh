@@ -10,13 +10,13 @@ if [[ ! "${MAJOR}" || ! "${MINOR}" || ! "${PATCH}" ]]; then
 fi
 
 VERSION_ID=$(. /etc/os-release && echo $VERSION_ID)
-REPO_URL="https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}"
+REPO_URL="http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}"
 
-echo "deb ${REPO_URL}/ /" | tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+echo "deb ${REPO_URL}/ /" | tee /etc/apt/sources.list.d/devel_kubic_libcontainers_stable.list
 curl -sL ${REPO_URL}/Release.key | apt-key add -
 
 apt_install \
-  skopeo \
+  skopeo=${TOOL_VERSION}* \
   ;
 
 skopeo --version
