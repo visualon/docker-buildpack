@@ -16,7 +16,7 @@ echo "deb ${REPO_URL}/ /" | tee /etc/apt/sources.list.d/devel_kubic_libcontainer
 curl -sL ${REPO_URL}/Release.key | apt-key add -
 
 apt_install \
-  skopeo=${TOOL_VERSION}* \
+  skopeo \
   ;
 
 skopeo --version
