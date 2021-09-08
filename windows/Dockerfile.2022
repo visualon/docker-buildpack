@@ -1,6 +1,6 @@
 # escape=`
 
-# Use the latest Windows Server Core image
+# Use the latest Windows Server Core image with .NET Framework 4.8.
 FROM mcr.microsoft.com/windows/servercore:ltsc2022@sha256:8f756a7fd4fe963cc7dd2c3ad1597327535da8e8f55a7d1932780934efa87e04
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" `
@@ -15,8 +15,6 @@ ENV `
 
 COPY src\ c:\
 
-#SHELL ["cmd", "/S", "/C"]
-
 RUN c:\tools\init.cmd
 
 # renovate: datasource=github-releases lookupName=kiennq/scoop-better-shimexe versioning=gradle
@@ -26,5 +24,4 @@ RUN install-tool shim 2.2.1
 RUN install-tool git v2.33.0.windows.2
 
 # Define the entry point for the docker container.
-#ENTRYPOINT [ "cmd", "/S", "/C"]
 CMD ["pwsh"]
