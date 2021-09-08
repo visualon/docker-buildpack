@@ -41,7 +41,7 @@ jobs:
         working-directory: ./windows
 
       - name: Test run
-        run: docker-compose --verbose --file docker-compose.test.yml run sut
+        run: docker-compose --file docker-compose.test.yml run sut
         #run: ./test.cmd
         working-directory: ./windows
         env:
