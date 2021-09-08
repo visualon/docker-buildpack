@@ -15,7 +15,7 @@ ENV `
 
 COPY src\ c:\
 
-SHELL ["cmd", "/S", "/C"]
+#SHELL ["cmd", "/S", "/C"]
 
 RUN c:\tools\init.cmd
 
@@ -26,5 +26,5 @@ RUN install-tool shim 2.2.1
 RUN install-tool git v2.33.0.windows.2
 
 # Define the entry point for the docker container.
-ENTRYPOINT [ "cmd", "/S", "/C"]
+#ENTRYPOINT [ "cmd", "/S", "/C"]
 CMD ["pwsh"]
