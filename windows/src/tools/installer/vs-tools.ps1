@@ -21,11 +21,9 @@ if ($err = Get-ChildItem $Env:TEMP -Filter dd_setup_*_errors.log | Where-Object 
 }
 
 install-shim msbuild C:\BuildTools\MSBuild\Current\Bin\msbuild.exe
+install-shim dotnet ${env:ProgramFiles}\dotnet\dotnet.exe
 
 Write-Debug "VS Test ..."
-# Path not yet updated
-Set-Alias dotnet ${env:ProgramFiles}\dotnet\dotnet.exe;
-
 exec { dotnet nuget list source } | Out-Null
 Write-Debug "VS Test done"
 
