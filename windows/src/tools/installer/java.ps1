@@ -8,7 +8,10 @@ $ErrorActionPreference = 'Stop'
 $api = 'https://api.adoptium.net/v3/assets/version'
 $apiArgs = 'heap_size=normal&image_type=jre&os=windows&page=0&page_size=1&project=jdk&vendor=adoptium&architecture=x64'
 
-$res = Invoke-WebRequest "$api/$Version?$apiArgs" | ConvertFrom-Json
+$url = "${api}/${Version}?${apiArgs}"
+
+"Using api: $url" | Write-Host
+$res = Invoke-RestMethod $url
 
 $file = "$tmp\$Name.zip"
 $app = "$apps\$Name"
