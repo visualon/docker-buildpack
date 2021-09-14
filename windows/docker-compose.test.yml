@@ -2,6 +2,9 @@ version: "3.7"
 services:
   sut:
     image: "${IMAGE}"
-    command: git --version
+    command: powershell -f ./run.ps1
     stdin_open: false
     tty: false
+    working_dir: c:/test
+    volumes:
+      - ./test:c:/test
