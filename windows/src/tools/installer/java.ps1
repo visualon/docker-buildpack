@@ -1,3 +1,5 @@
+#Requires -Version 5.1
+
 $ErrorActionPreference = 'Stop'
 
 . \tools\lib\index.ps1
