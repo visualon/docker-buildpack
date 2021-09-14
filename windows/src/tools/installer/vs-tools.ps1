@@ -20,6 +20,11 @@ if ($err = Get-ChildItem $Env:TEMP -Filter dd_setup_*_errors.log | Where-Object 
   throw $err
 }
 
+[Environment]::SetEnvironmentVariable("DOTNET_ROOT","${env:ProgramFiles}\dotnet", "Machine")
+[Environment]::SetEnvironmentVariable("DOTNET_NOLOGO", "true", "Machine")
+[Environment]::SetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "true", "Machine")
+[Environment]::SetEnvironmentVariable("DOTNET_CLI_UI_LANGUAGE", "en-us", "Machine")
+
 install-shim msbuild C:\BuildTools\MSBuild\Current\Bin\msbuild.exe
 install-shim dotnet ${env:ProgramFiles}\dotnet\dotnet.exe
 
