@@ -2,15 +2,21 @@
 
 $ErrorActionPreference = 'Stop'
 
-. \tools\lib\index.ps1
+# 11.0.12+7
+if ( -not ($Version -match '^(\d+\.\d+\.\d+(\+\d+)?)$') ) {
+  throw "Invalid $Name version"
+}
 
-$tag = $Version.Replace('+', '%2B')
-$v = $Version.Replace('+', '_')
+$api = 'https://api.adoptium.net/v3/assets/version'
+$apiArgs = 'heap_size=normal&image_type=jre&os=windows&page=0&page_size=1&project=jdk&vendor=adoptium&architecture=x64'
 
+$url = "${api}/${Version}?${apiArgs}"
+
+$res = Invoke-RestMethod $url
 
 $file = "$tmp\$Name.zip"
 $app = "$apps\$Name"
-$url = "https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-${tag}/OpenJDK11U-jre_x64_windows_hotspot_${v}.zip"
+$url = $res[0].binaries[0].package.link
 
 Invoke-WebRequest $url -OutFile $file
 
