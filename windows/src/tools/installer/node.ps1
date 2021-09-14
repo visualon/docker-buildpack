@@ -1,7 +1,7 @@
 #Requires -Version 5.1
 
 # 1.14.5
-if ( -not $Version -match '^(\d+\.\d+\.\d+)$' ) {
+if ( -not ($Version -match '^(\d+\.\d+\.\d+)$') ) {
   throw "Invalid $Name version"
 }
 

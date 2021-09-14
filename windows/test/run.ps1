@@ -9,5 +9,4 @@ install-tool pwsh v7.1.4
 install-tool java 11.0.12+7
 
 # renovate: datasource=node
-$NODE_VERSION=14.17.6
-install-tool node $NODE_VERSION
+install-tool node 14.17.6

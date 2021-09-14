@@ -2,15 +2,16 @@
 
 $ErrorActionPreference = 'Stop'
 
-. \tools\lib\index.ps1
-
+# 11.0.12+7
+if ( -not ($Version -match '^(\d+\.\d+\.\d+(\+\d+)?)$') ) {
+  throw "Invalid $Name version"
+}
 
 $api = 'https://api.adoptium.net/v3/assets/version'
 $apiArgs = 'heap_size=normal&image_type=jre&os=windows&page=0&page_size=1&project=jdk&vendor=adoptium&architecture=x64'
 
 $url = "${api}/${Version}?${apiArgs}"
 
-"Using api: $url" | Write-Host
 $res = Invoke-RestMethod $url
 
 $file = "$tmp\$Name.zip"
