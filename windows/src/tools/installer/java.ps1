@@ -5,8 +5,8 @@ $ErrorActionPreference = 'Stop'
 . \tools\lib\index.ps1
 
 
-$api = https://api.adoptium.net/v3/assets/version
-$apiArgs='heap_size=normal&image_type=jre&os=windows&page=0&page_size=1&project=jdk&vendor=adoptium&architecture=x64'
+$api = 'https://api.adoptium.net/v3/assets/version'
+$apiArgs = 'heap_size=normal&image_type=jre&os=windows&page=0&page_size=1&project=jdk&vendor=adoptium&architecture=x64'
 
 $res = Invoke-WebRequest "$api/$Version?$apiArgs" | ConvertFrom-Json
 
