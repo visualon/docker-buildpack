@@ -1,4 +1,4 @@
 @echo off
 echo Prepare image
 
-setx /M PATH "c:\tools\bin;%PATH%" > nul
+setx /M PATH "%PATH%;c:\tools\bin" > nul
