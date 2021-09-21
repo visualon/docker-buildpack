@@ -1,9 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "visualon/renovate-config",
-    "visualon/renovate-config:automergePatch"
-  ],
+  "extends": ["visualon/renovate-config", "visualon/renovate-config:automergePatch"],
   "labels": ["deps"],
   "digest": {
     "extends": ["schedule:daily"]
@@ -14,6 +11,12 @@
       "matchPackageNames": ["git"],
       "matchPaths": ["windows/**"],
       "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(?<compatibility>\\.windows\\.)(?<build>\\d+)$"
+    },
+    {
+      "description": "Override msys2 versioning for windows",
+      "matchPackageNames": ["msys2"],
+      "matchPaths": ["windows/**"],
+      "versioning": "regex:^v(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)$"
     },
     {
       "description": "Automerge buildpack minor updates",
