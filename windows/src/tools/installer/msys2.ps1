@@ -20,8 +20,9 @@ exec {
 Move-Item -Path c:\tmp\msys64 -Destination $app
 
 function msys() {
+  $more = $args
   exec {
-    & "$app\usr\bin\bash.exe" @('-lc') + @Args
+    & "$app\usr\bin\bash.exe" @('-lc') + @more
   }
 }
 
