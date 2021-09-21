@@ -14,12 +14,16 @@ $url = "https://github.com/msys2/msys2-installer/releases/download/${Version}/ms
 Invoke-WebRequest $url -OutFile $file
 
 exec {
-  & $file -y -oC:\tmp\
+  & $file -y -oC:\tmp\ | Out-Null
 }
 
 Move-Item -Path c:\tmp\msys64 -Destination $app
 
-function msys() { & "$app\usr\bin\bash.exe" @('-lc') + @Args; } \
+function msys() {
+  exec {
+    & "$app\usr\bin\bash.exe" @('-lc') + @Args
+  }
+}
 
 msys ' '
 msys 'pacman --noconfirm -Syuu'
@@ -29,8 +33,8 @@ msys 'pacman --noconfirm -S --needed tar'
 
 Install-Shim -Name tar -Path bin/tar.exe
 
-tar --version
+exec { tar --version }
 
-tar --posix --use-compress-program zstd -T0 --long=30 -cf tmp/msys2.std -P $file.replace('\', '/') --force-local
+exec { tar --posix --use-compress-program zstd -T0 --long=30 -cf tmp/msys2.std -P $file.replace('\', '/') --force-local }
 
-tar --use-compress-program zstd -tf tmp/msys2.std -P
+exec { tar --use-compress-program zstd -tf tmp/msys2.std -P }
