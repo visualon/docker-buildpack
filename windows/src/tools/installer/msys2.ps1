@@ -32,10 +32,10 @@ msys 'pacman --noconfirm -Syuu'
 msys 'pacman --noconfirm -Scc'
 msys 'pacman --noconfirm -S --needed tar'
 
-Install-Shim -Name tar -Path bin/tar.exe
+Install-Shim -Name gnutar -Path bin/tar.exe
 
-exec { tar --version }
+exec { gnutar --version }
 
-exec { tar --posix --use-compress-program zstd -T0 --long=30 -cf tmp/msys2.std -P $file.replace('\', '/') --force-local }
+exec { gnutar --posix --use-compress-program zstd -T0 --long=30 -cf tmp/msys2.std -P $file.replace('\', '/') --force-local }
 
-exec { tar --use-compress-program zstd -tf tmp/msys2.std -P }
+exec { gnutar --use-compress-program zstd -tf tmp/msys2.std -P }
