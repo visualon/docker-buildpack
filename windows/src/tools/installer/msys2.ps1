@@ -32,7 +32,7 @@ msys 'pacman --noconfirm -Syuu'
 msys 'pacman --noconfirm -Scc'
 msys 'pacman --noconfirm -S --needed tar'
 
-Install-Shim -Name gnutar -Path bin/tar.exe
+Install-Shim -Name gnutar -Path bin/tar.exe -Tool $Name
 
 exec { gnutar --version }
 
