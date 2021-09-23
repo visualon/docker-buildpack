@@ -27,3 +27,4 @@ exec { git config --system core.autocrlf input }
 exec { git config --system core.longpaths true }
 exec { git config --system http.sslbackend schannel }
 exec { git config --system --replace-all credential.helper '""' }
+exec { git config --system init.defaultBranch main }
