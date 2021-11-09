@@ -1,7 +1,7 @@
 #Requires -Version 5.1
 
 Write-Debug "Fetching installer"
-Invoke-WebRequest -OutFile c:\TEMP\vs_BuildTools.exe https://aka.ms/vs/16/release/vs_buildtools.exe
+Invoke-WebRequest -OutFile c:\TEMP\vs_BuildTools.exe https://aka.ms/vs/17/release/vs_buildtools.exe
 
 #curl -sSfLo c:\TEMP\collect.exe https://aka.ms/vscollect.exe
 
@@ -11,7 +11,8 @@ exec {
     --installPath C:\BuildTools  `
     --add Microsoft.VisualStudio.Workload.WebBuildTools  `
     --add Microsoft.VisualStudio.Workload.OfficeBuildTools  `
-    --add Microsoft.VisualStudio.Workload.NetCoreBuildTools | Out-Null
+    --add Microsoft.VisualStudio.Workload.NetCoreBuildTools `
+    --add Microsoft.NetCore.Component.Runtime.5.0 | Out-Null
 }  -AllowedExitCodes  @(0, 3010)
 
 Write-Debug "Installing vs done"
