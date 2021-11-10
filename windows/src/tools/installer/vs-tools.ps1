@@ -1,14 +1,14 @@
 #Requires -Version 5.1
 
-Write-Debug "Fetching installer"
-Invoke-WebRequest -OutFile c:\TEMP\vs_BuildTools.exe https://aka.ms/vs/17/release/vs_buildtools.exe
-
+Write-Debug "Downloading installer ..."
+Invoke-WebRequest -OutFile "$tmp\vs_BuildTools.exe" https://aka.ms/vs/17/release/vs_buildtools.exe
+Write-Debug "Downloading installer done"
 #curl -sSfLo c:\TEMP\collect.exe https://aka.ms/vscollect.exe
 
 # https://docs.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-build-tools?view=vs-2022
 Write-Debug "Installing vs 2022 build tools"
 exec {
-  c:\TEMP\vs_buildtools.exe --quiet --wait --norestart --nocache `
+  & "$tmp\vs_buildtools.exe" --quiet --wait --norestart --nocache `
     --installPath C:\BuildTools  `
 		--add Microsoft.VisualStudio.Workload.MSBuildTools `
 		--add Microsoft.VisualStudio.Workload.WebBuildTools  `
@@ -19,11 +19,10 @@ exec {
 		--add Microsoft.NetCore.Component.SDK
 } -AllowedExitCodes  @(0, 3010)
 
-Write-Debug "Installing vs done"
-
 if ($err = Get-ChildItem $Env:TEMP -Filter dd_setup_*_errors.log | Where-Object Length -gt 0 | Get-Content) {
   throw $err
 }
+Write-Debug "Installing vs done"
 
 Write-Debug "Configure env ..."
 [Environment]::SetEnvironmentVariable("DOTNET_ROOT","${env:ProgramFiles}\dotnet", "Machine")
