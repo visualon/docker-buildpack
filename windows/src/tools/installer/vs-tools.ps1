@@ -41,6 +41,8 @@ Write-Debug "Creating shims done"
 Write-Debug "VS Test ..."
 Get-ChildItem "${env:ProgramFiles}"
 Get-ChildItem "${env:ProgramFiles(X86)}"
+Get-Process
+Get-ChildItem "C:\BuildTools"
 Get-ChildItem "${env:ProgramFiles}\dotnet"
 dotnet nuget list source
 exec { dotnet nuget list source } | Out-Null
