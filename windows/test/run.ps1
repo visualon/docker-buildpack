@@ -11,8 +11,10 @@ install-tool java 11.0.12+7
 # renovate: datasource=node
 install-tool node 14.17.6
 
+$DebugPreference = 'Continue'
+
 # install last to get latest vs updates
-install-tool vs-tools -Debug
+install-tool vs-tools
 
 . c:\tools\lib\exec.ps1
 
