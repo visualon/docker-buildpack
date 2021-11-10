@@ -31,11 +31,13 @@ if ($err = Get-ChildItem $Env:TEMP -Filter dd_setup_*_errors.log | Where-Object 
 [Environment]::SetEnvironmentVariable("DOTNET_CLI_UI_LANGUAGE", "en-us", "Machine")
 
 install-shim msbuild C:\BuildTools\MSBuild\Current\Bin\amd64\msbuild.exe
-install-shim dotnet ${env:ProgramFiles}\dotnet\dotnet.exe
+install-shim dotnet "${env:ProgramFiles}\dotnet\dotnet.exe"
 install-shim vswhere "${env:ProgramFiles(X86)}\Microsoft Visual Studio\Installer\vswhere.exe"
 
 Write-Debug "VS Test ..."
-Get-ChildItem ${env:ProgramFiles}\dotnet
+Get-ChildItem "${env:ProgramFiles}"
+Get-ChildItem "${env:ProgramFiles(X86)}"
+Get-ChildItem "${env:ProgramFiles}\dotnet"
 dotnet nuget list source
 exec { dotnet nuget list source } | Out-Null
 Write-Debug "VS Test done"
