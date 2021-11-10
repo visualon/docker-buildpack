@@ -30,6 +30,7 @@ install-shim msbuild C:\BuildTools\MSBuild\Current\Bin\amd64\msbuild.exe
 install-shim dotnet ${env:ProgramFiles}\dotnet\dotnet.exe
 
 Write-Debug "VS Test ..."
+dotnet nuget list source
 exec { dotnet nuget list source } | Out-Null
 Write-Debug "VS Test done"
 
