@@ -11,6 +11,7 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" `
 ENV `
   POWERSHELL_TELEMETRY_OPTOUT=1 `
   DOTNET_CLI_TELEMETRY_OPTOUT=1 `
+  DOTNET_CLI_UI_LANGUAGE=en-us `
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
 
 COPY src\ c:\
