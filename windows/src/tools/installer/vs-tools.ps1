@@ -35,6 +35,7 @@ install-shim dotnet ${env:ProgramFiles}\dotnet\dotnet.exe
 install-shim vswhere "${env:ProgramFiles(X86)}\Microsoft Visual Studio\Installer\vswhere.exe"
 
 Write-Debug "VS Test ..."
+Get-ChildItem ${env:ProgramFiles}\dotnet
 dotnet nuget list source
 exec { dotnet nuget list source } | Out-Null
 Write-Debug "VS Test done"
