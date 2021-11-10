@@ -25,14 +25,18 @@ if ($err = Get-ChildItem $Env:TEMP -Filter dd_setup_*_errors.log | Where-Object 
   throw $err
 }
 
+Write-Debug "Configure env ..."
 [Environment]::SetEnvironmentVariable("DOTNET_ROOT","${env:ProgramFiles}\dotnet", "Machine")
 [Environment]::SetEnvironmentVariable("DOTNET_NOLOGO", "true", "Machine")
 [Environment]::SetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "true", "Machine")
 [Environment]::SetEnvironmentVariable("DOTNET_CLI_UI_LANGUAGE", "en-us", "Machine")
+Write-Debug "Configure env done"
 
+Write-Debug "Creating shims ..."
 install-shim msbuild C:\BuildTools\MSBuild\Current\Bin\amd64\msbuild.exe
 install-shim dotnet "${env:ProgramFiles}\dotnet\dotnet.exe"
-install-shim vswhere "${env:ProgramFiles(X86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+#install-shim vswhere "${env:ProgramFiles(X86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+Write-Debug "Creating shims done"
 
 Write-Debug "VS Test ..."
 Get-ChildItem "${env:ProgramFiles}"
