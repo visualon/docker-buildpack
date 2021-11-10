@@ -16,7 +16,7 @@ function Install-Shim {
     $Tool
   )
 
-  Write-Debug "Install shim $Name <> $Path"
+  Write-Debug "Install shim $Name => $Path"
 
   cmd /c mklink ${bin}\${Name}.exe $apps\shim\shim.exe | Out-Null
 

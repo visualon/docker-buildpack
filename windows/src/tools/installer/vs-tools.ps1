@@ -7,17 +7,22 @@ Write-Debug "Downloading installer done"
 
 # https://docs.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-build-tools?view=vs-2022
 Write-Debug "Installing vs 2022 build tools"
-exec {
-  & "$tmp\vs_buildtools.exe" --quiet --wait --norestart --nocache `
-    --installPath C:\BuildTools  `
-		--add Microsoft.VisualStudio.Workload.MSBuildTools `
-		--add Microsoft.VisualStudio.Workload.WebBuildTools  `
-		--add Microsoft.VisualStudio.Workload.OfficeBuildTools  `
-    --add Microsoft.NetCore.Component.Runtime.3.1 `
-		--add Microsoft.NetCore.Component.Runtime.5.0 `
-		--add Microsoft.NetCore.Component.Runtime.6.0 `
-		--add Microsoft.NetCore.Component.SDK
-} -AllowedExitCodes  @(0, 3010)
+$vsArgs = @(
+  "--quiet", "--wait", "--norestart", "--nocache",
+  "--installPath", "C:\BuildTools",
+  "--add", "Microsoft.VisualStudio.Workload.MSBuildTools"
+  "--add", "Microsoft.VisualStudio.Workload.WebBuildTools"
+  "--add", "Microsoft.VisualStudio.Workload.OfficeBuildTools",
+  "--add", "Microsoft.NetCore.Component.Runtime.3.1",
+  "--add", "Microsoft.NetCore.Component.Runtime.5.0",
+  "--add", "Microsoft.NetCore.Component.Runtime.6.0",
+  "--add", "Microsoft.NetCore.Component.SDK"
+)
+$vsProcess = Start-Process "$tmp\vs_buildtools.exe" -ArgumentList $vsArgs -Wait -PassThru -NoNewWindow
+
+if ($vsProcess.ExitCode -notin @(0, 3010)) {
+  throw "Install failed."
+}
 
 if ($err = Get-ChildItem $Env:TEMP -Filter dd_setup_*_errors.log | Where-Object Length -gt 0 | Get-Content) {
   throw $err
@@ -25,7 +30,7 @@ if ($err = Get-ChildItem $Env:TEMP -Filter dd_setup_*_errors.log | Where-Object 
 Write-Debug "Installing vs done"
 
 Write-Debug "Configure env ..."
-[Environment]::SetEnvironmentVariable("DOTNET_ROOT","${env:ProgramFiles}\dotnet", "Machine")
+[Environment]::SetEnvironmentVariable("DOTNET_ROOT", "${env:ProgramFiles}\dotnet", "Machine")
 [Environment]::SetEnvironmentVariable("DOTNET_NOLOGO", "true", "Machine")
 [Environment]::SetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "true", "Machine")
 [Environment]::SetEnvironmentVariable("DOTNET_CLI_UI_LANGUAGE", "en-us", "Machine")
@@ -40,9 +45,10 @@ Write-Debug "Creating shims done"
 Write-Debug "VS Test ..."
 Get-ChildItem "${env:ProgramFiles}"
 Get-ChildItem "${env:ProgramFiles(X86)}"
-Get-Process
+Get-Process | Format-Table
 Get-ChildItem "C:\BuildTools"
 Get-ChildItem "${env:ProgramFiles}\dotnet"
+Get-ChildItem "${env:ProgramData}\Microsoft\VisualStudio\Packages"
 dotnet nuget list source
 exec { dotnet nuget list source } | Out-Null
 Write-Debug "VS Test done"
