@@ -12,7 +12,7 @@ install-tool java 11.0.12+7
 install-tool node 14.17.6
 
 # install last to get latest vs updates
-install-tool vs-tools
+install-tool vs-tools -Debug
 
 . c:\tools\lib\exec.ps1
 
