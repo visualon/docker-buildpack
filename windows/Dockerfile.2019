@@ -11,6 +11,7 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" `
 ENV `
   POWERSHELL_TELEMETRY_OPTOUT=1 `
   DOTNET_CLI_TELEMETRY_OPTOUT=1 `
+  DOTNET_CLI_UI_LANGUAGE=en-us `
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
 
 COPY src\ c:\
@@ -24,4 +25,4 @@ RUN install-tool shim 2.2.1
 RUN install-tool git v2.33.1.windows.1
 
 # Define the entry point for the docker container.
-CMD ["pwsh"]
+#CMD ["pwsh"]
