@@ -1,6 +1,7 @@
 #Requires -Version 5.1
 
 $ErrorActionPreference = 'Stop'
+$DebugPreference = 'Continue'
 
 # renovate: datasource=github-releases lookupName=PowerShell/PowerShell
 install-tool powershell v7.1.4
@@ -10,3 +11,10 @@ install-tool java 11.0.12+7
 
 # renovate: datasource=node
 install-tool node 14.17.6
+
+# install last to get latest vs updates
+install-tool vs-tools
+
+. c:\tools\lib\exec.ps1
+
+exec { dotnet build test-cli }
