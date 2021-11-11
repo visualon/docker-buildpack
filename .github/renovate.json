@@ -25,16 +25,16 @@
       "groupName": "windows docker digests"
     },
     {
-      "description": "Trigger fix release for docker digest updates",
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["digest"],
+      "description": "Trigger fix release for deps updates",
+      "matchPaths": ["**/Dockerfile", "**/Dockerfile.*"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
       "semanticCommitType": "fix"
     },
     {
       "description": "Trigger fix release for deps updates",
-      "matchPackageNames": ["git", "shim", "ghcr.io/containerbase/buildpack"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "semanticCommitType": "fix"
+      "matchPaths": ["**/Dockerfile", "**/Dockerfile.*"],
+      "matchUpdateTypes": ["major"],
+      "semanticCommitType": "feat"
     },
     {
       "description": "Use `test` semantic commit scope for tests",
