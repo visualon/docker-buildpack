@@ -1,7 +1,7 @@
-version: "3.7"
+version: '3.7'
 services:
   sut:
-    image: "${IMAGE}"
+    image: '${IMAGE}'
     command: powershell -f ./run.ps1
     stdin_open: false
     tty: false
