@@ -43,13 +43,6 @@ install-shim dotnet "${env:ProgramFiles}\dotnet\dotnet.exe"
 Write-Debug "Creating shims done"
 
 Write-Debug "VS Test ..."
-Get-ChildItem "${env:ProgramFiles}"
-Get-ChildItem "${env:ProgramFiles(X86)}"
-Get-Process | Format-Table
-Get-ChildItem "C:\BuildTools"
-Get-ChildItem "${env:ProgramFiles}\dotnet"
-Get-ChildItem "${env:ProgramData}\Microsoft\VisualStudio\Packages"
-dotnet nuget list source
 exec { dotnet nuget list source } | Out-Null
 Write-Debug "VS Test done"
 
