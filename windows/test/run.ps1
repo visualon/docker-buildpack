@@ -4,7 +4,7 @@ $ErrorActionPreference = 'Stop'
 $DebugPreference = 'Continue'
 
 # renovate: datasource=github-releases lookupName=PowerShell/PowerShell
-install-tool pwsh v7.1.4
+install-tool powershell v7.1.4
 
 # renovate: datasource=adoptium-java lookupName=java-jre
 install-tool java 11.0.12+7
