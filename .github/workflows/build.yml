@@ -7,6 +7,8 @@ env:
   OWNER: ${{ github.repository_owner }}
   FILE: buildpack
   IMAGE: ghcr.io/${{ github.repository_owner }}/buildpack
+  NODE_VERSION: v16.13.0 # renovate: datasource=node depName=node
+  DRY_RUN: ${{ github.ref != 'refs/heads/main' }}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
@@ -20,7 +22,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [2019,2022]
+        os: [2019, 2022]
 
     env:
       BASE: ${{ matrix.os }}
@@ -62,7 +64,7 @@ jobs:
           if [ -f push.sh ]; then
             ./push.sh
           fi
-          
+
         shell: bash
         working-directory: ./windows
 
@@ -99,38 +101,59 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: docker buildx bake build
 
-      - name: Publish the Docker image tags
-        if: github.ref == 'refs/heads/main'
-        run: |
-          if [ -f push.sh ]; then
-            ./push.sh
-          fi
-        working-directory: ./linux
-
   multi-arch:
     needs: [linux, windows]
 
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
 
     timeout-minutes: 30
 
     steps:
       - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2.4.0
 
-      - name: docker-config
-        uses: renovatebot/internal-tools@ba8cd25dca8f977f71143adcab39b0fa06705398 # renovate: tag=v1.9.2
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c # renovate: tag=v2.4.1
         with:
-          command: docker-config
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+
+      # - name: docker-config
+      #   uses: renovatebot/internal-tools@ba8cd25dca8f977f71143adcab39b0fa06705398 # renovate: tag=v1.9.2
+      #   with:
+      #     command: docker-config
 
       - name: Log into registry
+        if: github.ref == 'refs/heads/main'
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
       - name: Build the Docker multiarch manifest
-        run: docker manifest create ${{ env.IMAGE }} ${{ env.IMAGE }}:linux ${{ env.IMAGE }}:windows-2019 ${{ env.IMAGE }}:windows-2022
+        run: yarn build --release latest
 
       - name: Publish the Docker multiarch manifest
-        run: docker manifest push ${{ env.IMAGE }}
+        if: github.ref == 'refs/heads/main'
+        run: yarn push --release latest
 
-      - name: Inspect the Docker multiarch manifest
-        run: docker manifest inspect ${{ env.IMAGE }}
+  release:
+    needs: [multi-arch]
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2.4.0
+
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c # renovate: tag=v2.4.1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+
+      - name: Log into registry
+        if: github.ref == 'refs/heads/main'
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
+
+      - name: semantic-release
+        run: yarn semantic-release --dry-run ${{env.DRY_RUN}} --ci ${{env.DRY_RUN != 'true'}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -15,17 +15,33 @@
     "url": "https://github.com/visualon/docker-buildpack/issues"
   },
   "homepage": "https://github.com/visualon/docker-buildpack#readme",
+  "type": "module",
+  "scripts": {
+    "build": "run-s 'release:prepare {@}' --",
+    "lint": "prettier -c -u '**/*.*'",
+    "lint-fix": "prettier -w -u '**/*.*'",
+    "postinstall": "husky install",
+    "push": "run-s 'release:publish {@}' --",
+    "release:prepare": "node bin/prepare-release.js",
+    "release:publish": "node bin/publish-release.js"
+  },
+  "engines": {
+    "node": "^14.15.0 || ^16.11.0",
+    "yarn": "^1.22.0"
+  },
   "devDependencies": {
     "@semantic-release/exec": "6.0.2",
     "@types/node": "16.11.6",
     "@types/shelljs": "0.8.9",
+    "commander": "8.3.0",
     "conventional-changelog-conventionalcommits": "4.6.1",
     "husky": "7.0.4",
     "npm-run-all": "4.1.5",
     "prettier": "2.4.1",
     "pretty-quick": "3.1.1",
     "semantic-release": "18.0.0",
-    "shelljs": "0.8.4"
+    "shelljs": "0.8.4",
+    "typescript": "4.4.4"
   },
   "packageManager": "yarn@3.1.0"
 }
