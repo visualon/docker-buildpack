@@ -1,9 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "visualon/renovate-config",
-    "visualon/renovate-config:automergePatch"
-  ],
+  "extends": ["visualon/renovate-config", "visualon/renovate-config:automergePatch"],
   "labels": ["deps"],
   "digest": {
     "extends": ["schedule:daily"]
@@ -19,6 +16,30 @@
       "description": "Automerge buildpack minor updates",
       "matchPackageNames": ["ghcr.io/containerbase/buildpack"],
       "extends": [":automergeMinor"]
+    },
+    {
+      "description": "Group windows docker digest updates updates",
+      "matchPackagePrefixes": ["mcr.microsoft.com/windows/"],
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["digest"],
+      "groupName": "windows docker digests"
+    },
+    {
+      "description": "Trigger fix release for docker digest updates",
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["digest"],
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "Trigger fix release for deps updates",
+      "matchPackageNames": ["git", "shim", "ghcr.io/containerbase/buildpack"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "Use `test` semantic commit scope for tests",
+      "matchPaths": ["**/test/**"],
+      "semanticCommitType": "test"
     }
   ]
 }
