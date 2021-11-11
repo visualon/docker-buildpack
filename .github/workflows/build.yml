@@ -15,8 +15,30 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2.4.0
+
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c # renovate: tag=v2.4.1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+
+      - name: Installing dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Lint
+        run: yarn lint
+
   windows:
-    runs-on: windows-${{ matrix.os }}
+    needs: [lint]
+
+    runs-on: ${{ format('windows-{0}', matrix.os) }}
 
     timeout-minutes: 60
 
@@ -69,6 +91,8 @@ jobs:
         working-directory: ./windows
 
   linux:
+    needs: [lint]
+
     runs-on: ubuntu-latest
 
     timeout-minutes: 30
