@@ -5,6 +5,7 @@
   "digest": {
     "extends": ["schedule:daily"]
   },
+  "automergeType": "pr",
   "packageRules": [
     {
       "description": "Override git versioning for windows",
