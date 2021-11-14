@@ -13,4 +13,4 @@ Invoke-WebRequest $url -OutFile $file
 
 Expand-Archive -Path $file -DestinationPath $app
 
-Install-Shim -Name pwsh -Path pwsh.exe
+Install-Shim -Name pwsh -Path pwsh.exe -Tool $Name

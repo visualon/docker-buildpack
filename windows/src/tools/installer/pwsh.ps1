@@ -2,4 +2,4 @@
 
 Write-Host "Tool pwsh is deprecated, use powershell instead."
 
-. $PSScriptRoot\powershell.ps1
+install-tool powershell $Version
