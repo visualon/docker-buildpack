@@ -41,7 +41,7 @@
     "pretty-quick": "3.1.2",
     "semantic-release": "18.0.0",
     "shelljs": "0.8.4",
-    "typescript": "4.4.4"
+    "typescript": "4.5.2"
   },
   "packageManager": "yarn@3.1.0"
 }
