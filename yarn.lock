@@ -585,13 +585,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/shelljs@npm:0.8.9":
-  version: 0.8.9
-  resolution: "@types/shelljs@npm:0.8.9"
+"@types/shelljs@npm:0.8.10":
+  version: 0.8.10
+  resolution: "@types/shelljs@npm:0.8.10"
   dependencies:
     "@types/glob": "*"
     "@types/node": "*"
-  checksum: 3d36b010d84665eed34076b4d4501c81f327df5e0c4062183bd2ce14ad927e82de2d1b00d49d356f9cc48390dd6b4db7b38fa221bc9f0eeb63cb7f873cd09fe4
+  checksum: 3e17ba788e7f1a22563ca2f09c938f5fde80ea9097cee14c39cf5b7c52dc8b29742eb0c323cf774a672401523b24a74ed02a27ceaef884c9843701a6c2d350b6
   languageName: node
   linkType: hard
 
@@ -1496,7 +1496,7 @@ __metadata:
   dependencies:
     "@semantic-release/exec": 6.0.3
     "@types/node": 16.11.14
-    "@types/shelljs": 0.8.9
+    "@types/shelljs": 0.8.10
     commander: 8.3.0
     conventional-changelog-conventionalcommits: 4.6.1
     husky: 7.0.4
