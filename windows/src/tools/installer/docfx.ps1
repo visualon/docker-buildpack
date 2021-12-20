@@ -13,4 +13,4 @@ Invoke-WebRequest $url -OutFile $file
 
 Expand-Archive -Path $file -DestinationPath $app
 
-Install-Shim -Name $Name -Path $Name.exe
+Install-Shim -Name docfx -Path docfx.exe
