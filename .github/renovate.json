@@ -32,7 +32,7 @@
       "semanticCommitType": "fix"
     },
     {
-      "description": "Trigger fix release for deps updates",
+      "description": "Trigger feat release for deps updates",
       "matchPaths": ["**/Dockerfile", "**/Dockerfile.*"],
       "matchUpdateTypes": ["major"],
       "semanticCommitType": "feat"
@@ -40,6 +40,7 @@
     {
       "description": "Use `test` semantic commit scope for tests",
       "matchPaths": ["**/test/**"],
+      "additionalBranchPrefix": "test-",
       "semanticCommitType": "test"
     }
   ]
