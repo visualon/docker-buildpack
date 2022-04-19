@@ -1078,10 +1078,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:9.1.0":
-  version: 9.1.0
-  resolution: "commander@npm:9.1.0"
-  checksum: 1428319b6b90600a813c28fe1e413996d1be99bf01afe9ebc4a9fc6f8077ff3e75f11809b2d2f85bd9b13d7cb592154278e9bbfdb16dc5843cef97bcba6a9cfd
+"commander@npm:9.2.0":
+  version: 9.2.0
+  resolution: "commander@npm:9.2.0"
+  checksum: 7c82e4cd969712aa6d7c055b8351807a7230f9f31ef7ec7881e11a1147511de85adf5d6ccfd200240a118eecf693b220caf6865b8efbcea558a70d35aa9ed711
   languageName: node
   linkType: hard
 
@@ -1371,7 +1371,7 @@ __metadata:
     "@semantic-release/exec": 6.0.3
     "@types/node": 16.11.27
     "@types/shelljs": 0.8.11
-    commander: 9.1.0
+    commander: 9.2.0
     conventional-changelog-conventionalcommits: 4.6.3
     husky: 7.0.4
     npm-run-all: 4.1.5
