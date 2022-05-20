@@ -7,7 +7,7 @@
 
 $app = "$apps/$Name"
 $file = "$app/mc.exe"
-$url = "https://dl.minio.io/client/mc/release/windows-amd64/archive/v$Version"
+$url = "https://dl.minio.io/client/mc/release/windows-amd64/archive/mc.$Version"
 
 New-Item -ItemType Directory $app | Out-Null
 
