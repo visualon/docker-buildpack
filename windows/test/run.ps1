@@ -21,6 +21,9 @@ exec { node --version }
 install-tool docfx 2.58.9
 exec { docfx --version }
 
+# renovate: datasource=github-releases lookupName=facebook/zstd
+install-tool zstd 1.5.2
+
 # install last to get latest vs updates
 install-tool vs-tools
 
