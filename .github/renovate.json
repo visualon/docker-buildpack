@@ -42,6 +42,11 @@
       "matchPaths": ["**/test/**"],
       "additionalBranchPrefix": "test-",
       "semanticCommitType": "test"
+    },
+    {
+      "description": "Minio loose versioning",
+      "matchPackageNames": ["minio-client"],
+      "versioning": "loose"
     }
   ]
 }

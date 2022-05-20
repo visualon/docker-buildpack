@@ -2,6 +2,9 @@ version: '3.7'
 services:
   sut:
     image: '${IMAGE}'
-    command: git --version
+    command: bash run.sh
     stdin_open: false
     tty: false
+    working_dir: /test
+    volumes:
+      - ./test:/test
