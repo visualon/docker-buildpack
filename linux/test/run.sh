@@ -13,13 +13,13 @@ install-tool skopeo v1.8.0
 skopeo inspect docker://registry.fedoraproject.org/fedora:latest | jq -r '.Name+"@"+.Digest'
 
 # renovate: datasource=github-tags lookupName=kubernetes/kubectl
-RUN install-tool kubectl 1.20.1
+install-tool kubectl 1.20.1
 
 # renovate: datasource=github-releases lookupName=docker/buildx
-RUN install-tool buildx v0.8.2
+install-tool buildx v0.8.2
 
 # renovate: datasource=github-releases lookupName=kubernetes-sigs/kustomize
-RUN install-tool kustomize 4.0.4
+install-tool kustomize 4.0.4
 
 # renovate: datasource=github-releases lookupName=docker/compose
-RUN install-tool docker-compose 1.29.2
+install-tool docker-compose 1.29.2
