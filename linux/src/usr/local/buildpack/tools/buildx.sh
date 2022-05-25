@@ -2,6 +2,7 @@
 
 set -e
 
+require_root
 check_semver "${TOOL_VERSION}"
 
 if [[ ! "${MAJOR}" || ! "${MINOR}" || ! "${PATCH}" ]]; then
@@ -11,9 +12,9 @@ fi
 
 DISTRO=linux-amd64
 URL=https://github.com/docker/buildx/releases/download/v${TOOL_VERSION}/buildx-v${TOOL_VERSION}.${DISTRO}
-TARGET=${HOME}/.docker/cli-plugins/docker-buildx
+TARGET=/usr/local/lib/docker/cli-plugins/docker-buildx
 
-mkdir -p "${HOME}"/.docker/cli-plugins
+mkdir -p /usr/local/lib/docker/cli-plugins
 
 curl -sL "$URL" -o "${TARGET}"
 chmod +x "${TARGET}"
