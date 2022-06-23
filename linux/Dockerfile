@@ -1,4 +1,4 @@
-FROM ghcr.io/containerbase/buildpack:3.20.0@sha256:6bb3621daf9e2320b5a7fccfc8fb2ff7c9fbe4e093228e07cb51371d4c384795
+FROM ghcr.io/containerbase/buildpack:4.5.2@sha256:b1090676b8635dc7adb1421575bc130a0b7d301fde0622393856f66db3d9912f
 
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
