@@ -6,6 +6,7 @@
     "extends": ["schedule:daily"]
   },
   "automergeType": "pr",
+  "ignorePaths": ["**/node_modules/**"],
   "packageRules": [
     {
       "description": "Override git versioning for windows",
