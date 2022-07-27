@@ -45,9 +45,9 @@
       "semanticCommitType": "test"
     },
     {
-      "description": "Minio loose versioning",
+      "description": "Minio versioning",
       "matchPackageNames": ["minio-client"],
-      "versioning": "loose"
+      "versioning": "regex:^(?<compatibility>RELEASE\\.)(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T(?<build>\\d+)-\\d+-\\d+Z$"
     }
   ]
 }
