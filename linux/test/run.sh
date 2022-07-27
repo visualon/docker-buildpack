@@ -21,6 +21,9 @@ install-tool docker v20.10.16
 # renovate: datasource=github-releases lookupName=docker/compose
 install-tool docker-compose 1.29.2
 
+# renovate: datasource=github-releases lookupName=docker/compose
+install-tool docker-compose 2.7.0
+
 # renovate: datasource=github-releases lookupName=docker/buildx
 install-tool buildx v0.8.2
 

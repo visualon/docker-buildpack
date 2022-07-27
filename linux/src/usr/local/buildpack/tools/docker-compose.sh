@@ -3,6 +3,7 @@
 set -e
 
 require_root
+check_command docker
 check_semver "${TOOL_VERSION}"
 
 if [[ ! "${MAJOR}" || ! "${MINOR}" || ! "${PATCH}" ]]; then
@@ -15,14 +16,15 @@ URL=https://github.com/docker/compose/releases/download/${TOOL_VERSION}/docker-c
 
 if [[ "${MAJOR}" -gt 1 ]]; then
   check_command docker
-  TARGET=/usr/local/lib/docker/cli-plugins/docker-compose
+  TARGET=/usr/local/libexec/docker/cli-plugins/docker-compose
 
-  mkdir -p "/usr/local/lib/docker/cli-plugins"
+  mkdir -p "/usr/local/libexec/docker/cli-plugins"
 
   curl -sL "$URL" -o "${TARGET}"
   chmod +x "${TARGET}"
 
   docker compose version
+  su "${USER_NAME}" -c "docker compose version"
 else
   TARGET=/usr/local/bin/docker-compose
   curl -sL "$URL" -o $TARGET
