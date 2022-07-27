@@ -11,23 +11,27 @@ if [[ ! "${MAJOR}" || ! "${MINOR}" || ! "${PATCH}" ]]; then
   exit 1
 fi
 
-DISTRO=Linux-x86_64
-URL=https://github.com/docker/compose/releases/download/${TOOL_VERSION}/docker-compose-${DISTRO}
 
 if [[ "${MAJOR}" -gt 1 ]]; then
-  check_command docker
-  TARGET=/usr/local/libexec/docker/cli-plugins/docker-compose
+  TARGET=/usr/local/lib/docker/cli-plugins/docker-compose
+  DISTRO=linux-x86_64
+  if [[ "${TOOL_VERSION}" -eq "2.0.0" ]]; then
+    DISTRO=linux-amd64
+  fi
+  URL=https://github.com/docker/compose/releases/download/v${TOOL_VERSION}/docker-compose-${DISTRO}
 
-  mkdir -p "/usr/local/libexec/docker/cli-plugins"
+  mkdir -p "/usr/local/lib/docker/cli-plugins"
 
-  curl -sL "$URL" -o "${TARGET}"
+  curl -sSfL "$URL" -o "${TARGET}"
   chmod +x "${TARGET}"
 
   docker compose version
   su "${USER_NAME}" -c "docker compose version"
 else
+  DISTRO=Linux-x86_64
+  URL=https://github.com/docker/compose/releases/download/${TOOL_VERSION}/docker-compose-${DISTRO}
   TARGET=/usr/local/bin/docker-compose
-  curl -sL "$URL" -o $TARGET
+  curl -sSfL "$URL" -o $TARGET
   chmod +x ${TARGET}
   docker-compose version
 fi

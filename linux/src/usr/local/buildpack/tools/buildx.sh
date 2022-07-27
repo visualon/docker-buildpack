@@ -13,9 +13,9 @@ fi
 
 DISTRO=linux-amd64
 URL=https://github.com/docker/buildx/releases/download/v${TOOL_VERSION}/buildx-v${TOOL_VERSION}.${DISTRO}
-TARGET=/usr/local/libexec/docker/cli-plugins/docker-buildx
+TARGET=/usr/local/lib/docker/cli-plugins/docker-buildx
 
-mkdir -p /usr/local/libexec/docker/cli-plugins
+mkdir -p /usr/local/lib/docker/cli-plugins
 
 curl -sL "$URL" -o "${TARGET}"
 chmod +x "${TARGET}"
