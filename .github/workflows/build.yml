@@ -29,8 +29,11 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: yarn
 
+      - name: enable corepack
+        run: corepack enable
+
       - name: Installing dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install
 
       - name: Lint
         run: yarn lint
@@ -141,8 +144,11 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: yarn
 
+      - name: enable corepack
+        run: corepack enable
+
       - name: Installing dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install
 
       # - name: docker-config
       #   uses: renovatebot/internal-tools@ba8cd25dca8f977f71143adcab39b0fa06705398 # renovate: tag=v1.9.2
@@ -176,8 +182,11 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: yarn
 
+      - name: enable corepack
+        run: corepack enable
+
       - name: Installing dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install
 
       - name: Log into registry
         if: github.ref == 'refs/heads/main'
