@@ -3,6 +3,7 @@
 set -e
 
 require_root
+check_command docker
 check_semver "${TOOL_VERSION}"
 
 if [[ ! "${MAJOR}" || ! "${MINOR}" || ! "${PATCH}" ]]; then
@@ -20,3 +21,4 @@ curl -sL "$URL" -o "${TARGET}"
 chmod +x "${TARGET}"
 
 docker buildx version
+su "${USER_NAME}" -c "docker buildx version"
