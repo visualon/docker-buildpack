@@ -19,7 +19,7 @@ install-tool kubectl 1.20.1
 install-tool docker v20.10.17
 
 # renovate: datasource=github-releases lookupName=docker/compose
-install-tool docker-compose 1.29.2
+install-tool docker-compose v2.7.0
 
 # renovate: datasource=github-releases lookupName=docker/compose
 install-tool docker-compose 2.7.0
