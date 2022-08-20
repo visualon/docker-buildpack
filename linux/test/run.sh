@@ -25,7 +25,7 @@ install-tool docker-compose 1.29.2
 install-tool docker-compose 2.7.0
 
 # renovate: datasource=github-releases lookupName=docker/buildx
-install-tool buildx v0.8.2
+install-tool buildx v0.9.0
 
 # renovate: datasource=github-releases lookupName=kubernetes-sigs/kustomize
 install-tool kustomize 4.0.4
