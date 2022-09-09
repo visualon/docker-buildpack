@@ -18,7 +18,7 @@ install-tool node 14.20.0
 exec { node --version }
 
 # renovate: datasource=github-releases lookupName=dotnet/docfx
-install-tool docfx v2.59.3
+install-tool docfx v2.59.4
 exec { docfx --version }
 
 # renovate: datasource=github-releases lookupName=facebook/zstd
