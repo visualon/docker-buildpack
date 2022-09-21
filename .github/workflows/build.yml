@@ -9,6 +9,7 @@ env:
   IMAGE: ghcr.io/${{ github.repository_owner }}/buildpack
   NODE_VERSION: 16.17.0 # renovate: datasource=node depName=node
   DRY_RUN: ${{ github.ref != 'refs/heads/main' }}
+  BUILDKIT_PROGRESS: plain
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
@@ -64,7 +65,7 @@ jobs:
         continue-on-error: true
 
       - name: Build the Docker image
-        run: docker build --progress plain -t ${{ env.IMAGE }}:${{ env.TAG }} --cache-from ${{ env.IMAGE }} --cache-from ${{ env.IMAGE }}:${{ env.TAG }} -f Dockerfile.${{ env.BASE }} .
+        run: docker build -t ${{ env.IMAGE }}:${{ env.TAG }} --cache-from ${{ env.IMAGE }} --cache-from ${{ env.IMAGE }}:${{ env.TAG }} -f Dockerfile.${{ env.BASE }} .
         working-directory: ./windows
 
       - name: Test run
@@ -112,7 +113,7 @@ jobs:
           command: docker-config
 
       - name: Build the Docker image
-        run: docker buildx bake --progress plain test
+        run: docker buildx bake test
 
       - name: Test run
         run: docker-compose --file docker-compose.test.yml run sut
