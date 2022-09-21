@@ -6,6 +6,7 @@
     "extends": ["schedule:daily"]
   },
   "automergeType": "pr",
+  "platformAutomerge": true,
   "ignorePaths": ["**/node_modules/**"],
   "packageRules": [
     {
