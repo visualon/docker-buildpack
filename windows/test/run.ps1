@@ -10,7 +10,7 @@ install-tool powershell v7.2.7
 exec { pwsh --version }
 
 # renovate: datasource=adoptium-java lookupName=java-jre
-install-tool java 11.0.16+8
+install-tool java 11.0.17+8
 exec { java --version }
 
 # renovate: datasource=node
