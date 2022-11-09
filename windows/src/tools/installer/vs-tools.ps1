@@ -14,8 +14,8 @@ $vsArgs = @(
   "--add", "Microsoft.VisualStudio.Workload.WebBuildTools"
   "--add", "Microsoft.VisualStudio.Workload.OfficeBuildTools",
   "--add", "Microsoft.NetCore.Component.Runtime.3.1",
-  "--add", "Microsoft.NetCore.Component.Runtime.5.0",
   "--add", "Microsoft.NetCore.Component.Runtime.6.0",
+  "--add", "Microsoft.NetCore.Component.Runtime.7.0",
   "--add", "Microsoft.NetCore.Component.SDK"
 )
 $vsProcess = Start-Process "$tmp\vs_buildtools.exe" -ArgumentList $vsArgs -Wait -PassThru -NoNewWindow
