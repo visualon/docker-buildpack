@@ -34,12 +34,13 @@ Write-Debug "Configure env ..."
 [Environment]::SetEnvironmentVariable("DOTNET_NOLOGO", "true", "Machine")
 [Environment]::SetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "true", "Machine")
 [Environment]::SetEnvironmentVariable("DOTNET_CLI_UI_LANGUAGE", "en-us", "Machine")
+[Environment]::SetEnvironmentVariable("PATH", "${env:ProgramFiles}\dotnet;$([Environment]::GetEnvironmentVariable("PATH", "Machine"))", "Machine")
 Write-Debug "Configure env done"
 
 Write-Debug "Creating shims ..."
 install-shim msbuild C:\BuildTools\MSBuild\Current\Bin\amd64\msbuild.exe
 install-shim dotnet "${env:ProgramFiles}\dotnet\dotnet.exe"
-#install-shim vswhere "${env:ProgramFiles(X86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+# install-shim vswhere "${env:ProgramFiles(X86)}\Microsoft Visual Studio\Installer\vswhere.exe"
 Write-Debug "Creating shims done"
 
 Write-Debug "VS Test ..."
