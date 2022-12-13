@@ -14,7 +14,7 @@ install-tool java 11.0.17+8
 exec { java --version }
 
 # renovate: datasource=node
-install-tool node 14.21.1
+install-tool node 14.21.2
 exec { node --version }
 
 # renovate: datasource=github-releases lookupName=dotnet/docfx
