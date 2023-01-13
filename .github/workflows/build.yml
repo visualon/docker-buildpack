@@ -15,6 +15,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -45,6 +48,10 @@ jobs:
     runs-on: ${{ format('windows-{0}', matrix.os) }}
 
     timeout-minutes: 60
+
+    permissions:
+      contents: read
+      packages: write
 
     strategy:
       matrix:
@@ -101,6 +108,10 @@ jobs:
 
     timeout-minutes: 30
 
+    permissions:
+      contents: read
+      packages: write
+
     env:
       TAG: linux
 
@@ -136,6 +147,10 @@ jobs:
 
     timeout-minutes: 30
 
+    permissions:
+      contents: read
+      packages: write
+
     steps:
       - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
 
@@ -150,11 +165,6 @@ jobs:
 
       - name: Installing dependencies
         run: yarn install
-
-      # - name: docker-config
-      #   uses: renovatebot/internal-tools@ba8cd25dca8f977f71143adcab39b0fa06705398 # renovate: tag=v1.9.2
-      #   with:
-      #     command: docker-config
 
       - name: Log into registry
         if: github.ref == 'refs/heads/main'
@@ -173,6 +183,9 @@ jobs:
     runs-on: ubuntu-latest
 
     timeout-minutes: 30
+
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
