@@ -19,7 +19,6 @@ exec { node --version }
 
 # renovate: datasource=dotnet
 install-tool dotnet 6.0.13
-exec { dotnet --version }
 
 # renovate: datasource=github-releases lookupName=dotnet/docfx
 install-tool docfx v2.59.4
