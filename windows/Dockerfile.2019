@@ -18,7 +18,7 @@ COPY src\ c:\
 
 RUN c:\tools\init.cmd
 
-# renovate: datasource=github-releases lookupName=kiennq/scoop-better-shimexe versioning=gradle
+# renovate: datasource=github-releases lookupName=kiennq/scoop-better-shimexe
 RUN install-tool shim 2.2.1
 
 # renovate: datasource=github-releases lookupName=git-for-windows/git
