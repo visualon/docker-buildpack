@@ -29,13 +29,7 @@ if ($err = Get-ChildItem $Env:TEMP -Filter dd_setup_*_errors.log | Where-Object 
 }
 Write-Debug "Installing vs done"
 
-Write-Debug "Configure env ..."
-[Environment]::SetEnvironmentVariable("DOTNET_ROOT", "${env:ProgramFiles}\dotnet", "Machine")
-[Environment]::SetEnvironmentVariable("DOTNET_NOLOGO", "true", "Machine")
-[Environment]::SetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "true", "Machine")
-[Environment]::SetEnvironmentVariable("DOTNET_CLI_UI_LANGUAGE", "en-us", "Machine")
-[Environment]::SetEnvironmentVariable("PATH", "${env:ProgramFiles}\dotnet;$([Environment]::GetEnvironmentVariable("PATH", "Machine"))", "Machine")
-Write-Debug "Configure env done"
+set-dotnet-env
 
 Write-Debug "Creating shims ..."
 install-shim msbuild C:\BuildTools\MSBuild\Current\Bin\amd64\msbuild.exe
