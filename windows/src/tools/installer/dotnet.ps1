@@ -19,4 +19,4 @@ set-dotnet-env
 
 Install-Shim -Name dotnet -Path "$app\dotnet.exe"
 
-exec { dotnet --version }
+exec { dotnet --info }
