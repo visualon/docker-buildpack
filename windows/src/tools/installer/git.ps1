@@ -1,7 +1,7 @@
 #Requires -Version 5.1
 
 # 2.29.2.windows.1
-if ( -not ($Version -match '^(\d+\.\d+\.\d+)\.windows(\.\d+)$') ) {
+if ( -not ($Version -match '^(\d+\.\d+\.\d+(?:-rc\d))\.windows(\.\d+)$') ) {
   throw "Invalid $Name version"
 }
 
