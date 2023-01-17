@@ -17,6 +17,9 @@ exec { java --version }
 install-tool node 14.21.2
 exec { node --version }
 
+# renovate: datasource=dotnet
+install-tool dotnet 6.0.13
+
 # renovate: datasource=github-releases lookupName=dotnet/docfx
 install-tool docfx v2.59.4
 exec { docfx --version }
