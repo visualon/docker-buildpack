@@ -21,7 +21,7 @@ exec { node --version }
 install-tool dotnet 6.0.13
 
 # renovate: datasource=github-releases lookupName=dotnet/docfx
-install-tool docfx v2.59.4
+install-tool docfx v2.60.0
 exec { docfx --version }
 
 # renovate: datasource=github-releases lookupName=facebook/zstd
