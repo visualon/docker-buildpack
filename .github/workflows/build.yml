@@ -91,16 +91,6 @@ jobs:
         env:
           IMAGE: ${{ env.IMAGE }}:${{ env.TAG }}
 
-      - name: Publish the Docker image tags
-        if: github.ref == 'refs/heads/main'
-        run: |
-          if [ -f push.sh ]; then
-            ./push.sh
-          fi
-
-        shell: bash
-        working-directory: ./windows
-
   linux:
     needs: [lint]
 
