@@ -5,11 +5,11 @@ $DebugPreference = 'Continue'
 
 . c:\tools\lib\exec.ps1
 
-# renovate: datasource=github-releases lookupName=PowerShell/PowerShell
+# renovate: datasource=github-releases packageName=PowerShell/PowerShell
 install-tool powershell v7.3.2
 exec { pwsh --version }
 
-# renovate: datasource=adoptium-java lookupName=java-jre
+# renovate: datasource=adoptium-java packageName=java-jre
 install-tool java 11.0.18+10
 exec { java --version }
 
@@ -17,17 +17,17 @@ exec { java --version }
 install-tool node 14.21.2
 exec { node --version }
 
-# renovate: datasource=dotnet
+# renovate: datasource=dotnet packageName=dotnet-runtime
 install-tool dotnet 6.0.13
 
-# renovate: datasource=github-releases lookupName=dotnet/docfx
+# renovate: datasource=github-releases packageName=dotnet/docfx
 install-tool docfx v2.59.4
 exec { docfx --version }
 
-# renovate: datasource=github-releases lookupName=facebook/zstd
+# renovate: datasource=github-releases packageName=facebook/zstd
 install-tool zstd 1.5.2
 
-# renovate: datasource=github-releases lookupName=minio/mc
+# renovate: datasource=github-releases packageName=minio/mc
 install-tool minio-client RELEASE.2023-01-28T20-29-38Z
 
 # install last to get latest vs updates
