@@ -138,7 +138,7 @@ jobs:
 
       - name: Publish the Docker image
         if: github.ref == 'refs/heads/main'
-        run: docker buildx bake build
+        run: docker buildx bake build --provenance=false
 
   multi-arch:
     needs: [linux, windows]
