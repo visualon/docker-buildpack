@@ -6,7 +6,7 @@ $DebugPreference = 'Continue'
 . c:\tools\lib\exec.ps1
 
 # renovate: datasource=github-releases packageName=PowerShell/PowerShell
-install-tool powershell v7.3.2
+install-tool powershell v7.3.3
 exec { pwsh --version }
 
 # renovate: datasource=adoptium-java packageName=java-jre
