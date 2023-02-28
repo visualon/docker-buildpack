@@ -28,7 +28,7 @@ exec { docfx --version }
 install-tool zstd 1.5.2
 
 # renovate: datasource=github-releases packageName=minio/mc
-install-tool minio-client RELEASE.2023-02-16T19-20-11Z
+install-tool minio-client RELEASE.2023-02-28T00-12-59Z
 
 # install last to get latest vs updates
 install-tool vs-tools
