@@ -14,7 +14,7 @@ install-tool java 11.0.18+10
 exec { java --version }
 
 # renovate: datasource=node
-install-tool node 18.14.2
+install-tool node 18.15.0
 exec { node --version }
 
 # renovate: datasource=dotnet packageName=dotnet-runtime
