@@ -12,6 +12,11 @@ Invoke-WebRequest $url -OutFile $file
 
 Expand-Archive -Path $file -DestinationPath c:\TEMP
 
-Move-Item -Path "$tmp/zstd-v$Version-win64/zstd.exe" -Destination $bin
+if (Test-Path "$tmp/zstd-v$Version-win64/zstd.exe") {
+  Move-Item -Path "$tmp/zstd-v$Version-win64/zstd.exe" -Destination $bin
+}
+elseif (Test-Path "$tmp/zstd.exe") {
+  Move-Item -Path "$tmp/zstd.exe" -Destination $bin
+}
 
 exec { zstd --version }
