@@ -17,7 +17,7 @@
     },
     {
       "description": "Automerge buildpack minor updates",
-      "matchPackageNames": ["ghcr.io/containerbase/buildpack"],
+      "matchPackageNames": ["ghcr.io/containerbase/base"],
       "extends": [":automergeMinor"]
     },
     {
