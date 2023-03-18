@@ -25,7 +25,7 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+      - uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v3.4.0
 
       - name: Set up Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
@@ -62,7 +62,7 @@ jobs:
       TAG: windows-${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+      - uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v3.4.0
 
       # ignore not yet existing images
       - name: Fetch the Docker image
@@ -106,7 +106,7 @@ jobs:
       TAG: linux
 
     steps:
-      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+      - uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v3.4.0
 
       - name: docker-config
         uses: containerbase/internal-tools@47809eda33adec5b2926c5c7e7de8f2602fd3ed3 # v1.15.8
@@ -142,7 +142,7 @@ jobs:
       packages: write
 
     steps:
-      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+      - uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v3.4.0
 
       - name: Set up Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
@@ -179,7 +179,7 @@ jobs:
       packages: write
 
     steps:
-      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+      - uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v3.4.0
 
       - name: Set up Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
