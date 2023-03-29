@@ -10,6 +10,7 @@ param (
   [string]
   $Version
 )
+$ErrorActionPreference = 'Stop'
 
 . $PSScriptRoot\..\lib\index.ps1
 
@@ -30,7 +31,8 @@ if ( $Version -like 'v*') {
 " v$Version" | Write-Host -ForegroundColor Yellow -NoNewline
 " ... "  | Write-Host -ForegroundColor DarkGray
 
-exec { npm i -g ${Name}@${Version} } | Out-Null
+npm i -g ${Name}@${Version} | Out-Null
+ExitOnNativeFailure
 
 Remove-Cache
 

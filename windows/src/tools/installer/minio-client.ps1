@@ -13,7 +13,7 @@ New-Item -ItemType Directory $app | Out-Null
 
 Invoke-WebRequest $url -OutFile $file
 
-
 Install-Shim -Name mc -Path mc.exe -Tool $Name
 
-exec { mc --version }
+mc --version
+ExitOnNativeFailure

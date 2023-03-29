@@ -19,4 +19,5 @@ elseif (Test-Path "$tmp/zstd.exe") {
   Move-Item -Path "$tmp/zstd.exe" -Destination $bin
 }
 
-exec { zstd --version }
+zstd --version
+ExitOnNativeFailure

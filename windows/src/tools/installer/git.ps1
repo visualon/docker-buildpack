@@ -23,8 +23,13 @@ Expand-Archive -Path $file -DestinationPath $app
 
 Install-Shim -Name git -Path cmd\git.exe
 
-exec { git config --system core.autocrlf input }
-exec { git config --system core.longpaths true }
-exec { git config --system http.sslbackend schannel }
-exec { git config --system --replace-all credential.helper '""' }
-exec { git config --system init.defaultBranch main }
+git config --system core.autocrlf input
+ExitOnNativeFailure
+git config --system core.longpaths true
+ExitOnNativeFailure
+git config --system http.sslbackend schannel
+ExitOnNativeFailure
+git config --system --replace-all credential.helper '""'
+ExitOnNativeFailure
+git config --system init.defaultBranch main
+ExitOnNativeFailure

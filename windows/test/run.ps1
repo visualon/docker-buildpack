@@ -7,22 +7,26 @@ $DebugPreference = 'Continue'
 
 # renovate: datasource=github-releases packageName=PowerShell/PowerShell
 install-tool powershell v7.3.3
-exec { pwsh --version }
+pwsh --version
+ExitOnNativeFailure
 
 # renovate: datasource=adoptium-java packageName=java-jre
 install-tool java 11.0.18+10
-exec { java --version }
+java --version
+ExitOnNativeFailure
 
 # renovate: datasource=node
 install-tool node 18.15.0
-exec { node --version }
+node --version
+ExitOnNativeFailure
 
 # renovate: datasource=dotnet packageName=dotnet-runtime
 install-tool dotnet 6.0.15
 
 # renovate: datasource=github-releases packageName=dotnet/docfx
 install-tool docfx v2.59.4
-exec { docfx --version }
+docfx --version
+ExitOnNativeFailure
 
 # renovate: datasource=github-releases packageName=facebook/zstd
 install-tool zstd v1.5.4
@@ -33,4 +37,5 @@ install-tool minio-client RELEASE.2023-03-23T20-03-04Z
 # install last to get latest vs updates
 install-tool vs-tools
 
-exec { dotnet build test-cli }
+dotnet build test-cli
+ExitOnNativeFailure

@@ -22,6 +22,7 @@ Invoke-WebRequest $url -OutFile $file
 
 New-Item -Path $app -ItemType "directory" | Out-Null
 
-exec { tar -xzf $file -C $app --strip-components=1 }
+tar -xzf $file -C $app --strip-components=1
+ExitOnNativeFailure
 
 Install-Shim -Name java -Path bin\java.exe

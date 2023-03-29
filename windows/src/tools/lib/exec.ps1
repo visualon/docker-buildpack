@@ -55,3 +55,10 @@ function Test-CalledFromPrompt {
 
 Set-Alias -Name exec -Value Invoke-NativeApplication
 Set-Alias -Name safeexec -Value Invoke-NativeApplicationSafe
+
+
+function ExitOnNativeFailure {
+  if ($LASTEXITCODE -ne 0) {
+    exit $LASTEXITCODE
+  }
+}

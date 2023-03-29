@@ -21,6 +21,4 @@ if ($Properties -ne $null -and $Properties -ne '') {
 }
 
 & msbuild $opts
-if (!$?) {
-    throw "Build error! See above."
-}
+ExitOnNativeFailure

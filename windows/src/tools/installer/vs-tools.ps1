@@ -38,7 +38,8 @@ install-shim dotnet "${env:ProgramFiles}\dotnet\dotnet.exe"
 Write-Debug "Creating shims done"
 
 Write-Debug "VS Test ..."
-exec { dotnet nuget list source } | Out-Null
+dotnet nuget list source | Out-Null
+ExitOnNativeFailure
 Write-Debug "VS Test done"
 
 Write-Debug "VS Cleanup ..."
