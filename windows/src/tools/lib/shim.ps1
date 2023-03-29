@@ -19,6 +19,7 @@ function Install-Shim {
   Write-Debug "Install shim $Name => $Path"
 
   cmd /c mklink ${bin}\${Name}.exe $apps\shim\shim.exe | Out-Null
+  ExitOnNativeFailure
 
   if ($false -eq [System.IO.Path]::IsPathRooted($Path)) {
     $app = if ($Tool) { $Tool} else { $Name }
@@ -26,7 +27,6 @@ function Install-Shim {
   }
 
   Set-Content -Value "path = ${Path}" -Path "${bin}\${Name}.shim" -Encoding utf8
-
 
   Write-Debug "Install shim done"
 }

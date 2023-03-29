@@ -57,8 +57,8 @@ Set-Alias -Name exec -Value Invoke-NativeApplication
 Set-Alias -Name safeexec -Value Invoke-NativeApplicationSafe
 
 
-function ThrowOnNativeFailure {
-  if (-not $?) {
-    throw 'Native Failure'
+function ExitOnNativeFailure {
+  if ($LASTEXITCODE -ne 0) {
+    exit $LASTEXITCODE
   }
 }

@@ -21,7 +21,8 @@ Set-Content -Value "@`"%~dp0..\apps\$Name\npx.cmd`" %*" -Path "$bin\npx.cmd"
 
 Set-Content -Value "prefix=$bin`ncache=c:\\TEMP\\cache`nscripts-prepend-node-path=auto" -Path "$app\node_modules\npm\npmrc" -Encoding UTF8
 
-exec {
-  node --version
-  npm --version
-}
+
+node --version
+ExitOnNativeFailure
+npm --version
+ExitOnNativeFailure

@@ -13,3 +13,6 @@ Invoke-WebRequest $url -OutFile $file
 
 New-Item -Path $app -ItemType "directory" | Out-Null
 Expand-Archive -Path $file -DestinationPath $app
+
+powershell.exe -c "exit 24"
+ExitOnNativeFailure

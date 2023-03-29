@@ -11,6 +11,8 @@ param (
   $Version
 )
 
+$ErrorActionPreference = 'Stop'
+
 . $PSScriptRoot\..\lib\index.ps1
 
 if (-not $Version -and (Test-Path "env:\${Name}_version")) {
@@ -34,10 +36,12 @@ if (Test-Path "${installer}\${Name}.ps1") {
   . "${installer}\${Name}.ps1"
 }
 elseif (Test-Path "${installer}\${Name}.cmd") {
-  exec { & "${installer}\${Name}.cmd" }
+  cmd /c "${installer}\${Name}.cmd"
+  ExitOnNativeFailure
 }
 elseif (Test-Path "${installer}\${Name}.bat") {
-  exec { & "${installer}\${Name}.bat" }
+  cmd /c "${installer}\${Name}.bat"
+  ExitOnNativeFailure
 }
 else {
   throw "Missing Name installer"

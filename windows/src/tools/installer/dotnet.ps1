@@ -13,10 +13,12 @@ $url = "https://dotnetcli.azureedge.net/dotnet/Runtime/$Version/dotnet-runtime-$
 
 Invoke-WebRequest $url -OutFile $file
 New-Item $app -ItemType Directory | Out-Null
-exec { tar -oxzf $file -C $app }
+tar -oxzf $file -C $app
+ExitOnNativeFailure
 
 set-dotnet-env
 
 Install-Shim -Name dotnet -Path "$app\dotnet.exe"
 
-exec { dotnet --info }
+dotnet --info
+ExitOnNativeFailure
