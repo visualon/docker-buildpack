@@ -5,6 +5,9 @@ $DebugPreference = 'Continue'
 
 . c:\tools\lib\exec.ps1
 
+pwsh --version
+ThrowOnNativeFailure
+
 # renovate: datasource=github-releases packageName=PowerShell/PowerShell
 install-tool powershell v7.3.3
 exec { pwsh --version }

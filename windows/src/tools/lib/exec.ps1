@@ -55,3 +55,10 @@ function Test-CalledFromPrompt {
 
 Set-Alias -Name exec -Value Invoke-NativeApplication
 Set-Alias -Name safeexec -Value Invoke-NativeApplicationSafe
+
+
+function ThrowOnNativeFailure {
+  if (-not $?) {
+    throw 'Native Failure'
+  }
+}
