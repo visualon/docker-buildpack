@@ -14,6 +14,8 @@ Param(
 
 $ErrorActionPreference = 'Stop'
 
+. $PSScriptRoot\..\lib\index.ps1
+
 $opts = @("$Project", '/nologo', "/t:$Target", "/m", "/v:$Verbosity", '/nodeReuse:false')
 
 if ($Properties -ne $null -and $Properties -ne '') {
