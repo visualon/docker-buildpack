@@ -30,7 +30,7 @@
     "@semantic-release/exec": "6.0.3",
     "@types/node": "18.15.11",
     "@types/shelljs": "0.8.12",
-    "commander": "10.0.0",
+    "commander": "10.0.1",
     "conventional-changelog-conventionalcommits": "5.0.0",
     "husky": "8.0.3",
     "lint-staged": "13.2.1",
