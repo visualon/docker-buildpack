@@ -46,6 +46,12 @@
       "semanticCommitType": "test"
     },
     {
+      "description": "Separate branches for test major updates",
+      "matchPaths": ["**/test/**"],
+      "matchUpdateTypes": ["major"],
+      "additionalBranchPrefix": "test-major-"
+    },
+    {
       "description": "Minio versioning",
       "matchPackageNames": ["minio-client"],
       "versioning": "regex:^(?<compatibility>RELEASE\\.)(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T(?<build>\\d+)-\\d+-\\d+Z$"
