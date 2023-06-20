@@ -32,7 +32,7 @@ ExitOnNativeFailure
 install-tool zstd v1.5.5
 
 # renovate: datasource=github-releases packageName=minio/mc
-install-tool minio-client RELEASE.2023-06-15T15-08-26Z
+install-tool minio-client RELEASE.2023-06-19T19-31-19Z
 
 # install last to get latest vs updates
 install-tool vs-tools
