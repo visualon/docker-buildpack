@@ -8,7 +8,7 @@ git --version
 install-tool minio-client RELEASE.2023-07-18T21-05-38Z
 
 # renovate: datasource=github-releases packageName=visualon/skopeo-prebuild
-install-tool skopeo 1.13.0
+install-tool skopeo 1.13.1
 
 skopeo inspect docker://registry.fedoraproject.org/fedora:latest | jq -r '.Name+"@"+.Digest'
 
