@@ -1520,6 +1520,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"commander@npm:11.1.0":
+  version: 11.1.0
+  resolution: "commander@npm:11.1.0"
+  checksum: fd1a8557c6b5b622c89ecdfde703242ab7db3b628ea5d1755784c79b8e7cb0d74d65b4a262289b533359cd58e1bfc0bf50245dfbcd2954682a6f367c828b79ef
+  languageName: node
+  linkType: hard
+
 "comment-json@npm:^2.2.0":
   version: 2.4.2
   resolution: "comment-json@npm:2.4.2"
@@ -1833,7 +1840,7 @@ __metadata:
     "@types/node": 18.18.5
     "@types/shelljs": 0.8.13
     "@yarnpkg/sdks": ^3.0.0-rc.45
-    commander: 11.0.0
+    commander: 11.1.0
     conventional-changelog-conventionalcommits: 7.0.2
     husky: 8.0.3
     lint-staged: 14.0.1
