@@ -720,11 +720,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 20.8.9
-  resolution: "@types/node@npm:20.8.9"
+  version: 20.8.10
+  resolution: "@types/node@npm:20.8.10"
   dependencies:
     undici-types: ~5.26.4
-  checksum: 0c05f3502a9507ff27e91dd6fd574fa6f391b3fafedcfe8e0c8d33351fb22d02c0121f854e5b6b3ecb9a8a468407ddf6e7ac0029fb236d4c7e1361ffc758a01f
+  checksum: 7c61190e43e8074a1b571e52ff14c880bc67a0447f2fe5ed0e1a023eb8a23d5f815658edb98890f7578afe0f090433c4a635c7c87311762544e20dd78723e515
   languageName: node
   linkType: hard
 
@@ -6275,16 +6275,16 @@ __metadata:
   linkType: hard
 
 "universal-user-agent@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "universal-user-agent@npm:6.0.0"
-  checksum: 5092bbc80dd0d583cef0b62c17df0043193b74f425112ea6c1f69bc5eda21eeec7a08d8c4f793a277eb2202ffe9b44bec852fa3faff971234cd209874d1b79ef
+  version: 6.0.1
+  resolution: "universal-user-agent@npm:6.0.1"
+  checksum: fdc8e1ae48a05decfc7ded09b62071f571c7fe0bd793d700704c80cea316101d4eac15cc27ed2bb64f4ce166d2684777c3198b9ab16034f547abea0d3aa1c93c
   languageName: node
   linkType: hard
 
 "universalify@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "universalify@npm:2.0.0"
-  checksum: 2406a4edf4a8830aa6813278bab1f953a8e40f2f63a37873ffa9a3bc8f9745d06cc8e88f3572cb899b7e509013f7f6fcc3e37e8a6d914167a5381d8440518c44
+  version: 2.0.1
+  resolution: "universalify@npm:2.0.1"
+  checksum: ecd8469fe0db28e7de9e5289d32bd1b6ba8f7183db34f3bfc4ca53c49891c2d6aa05f3fb3936a81285a905cc509fb641a0c3fc131ec786167eff41236ae32e60
   languageName: node
   linkType: hard
 
