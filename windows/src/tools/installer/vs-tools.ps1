@@ -13,11 +13,24 @@ $vsArgs = @(
   "--add", "Microsoft.VisualStudio.Workload.MSBuildTools"
   "--add", "Microsoft.VisualStudio.Workload.WebBuildTools"
   "--add", "Microsoft.VisualStudio.Workload.OfficeBuildTools",
-  "--add", "Microsoft.NetCore.Component.Runtime.3.1",
-  "--add", "Microsoft.NetCore.Component.Runtime.6.0",
-  "--add", "Microsoft.NetCore.Component.Runtime.7.0",
   "--add", "Microsoft.NetCore.Component.SDK"
 )
+
+$dotnetVersions = @(
+  "3.1",
+  "6.0",
+  "7.0"
+)
+
+if ($env:VS_DOTNET_VERSIONS){
+  $dotnetVersions = $env:VS_DOTNET_VERSIONS.Split(";")
+}
+
+foreach ($version in $dotnetVersions) {
+  Write-Debug "Adding dotnet $version"
+  $vsArgs += "--add", "Microsoft.NetCore.Component.Runtime.$version"
+}
+
 $vsProcess = Start-Process "$tmp\vs_buildtools.exe" -ArgumentList $vsArgs -Wait -PassThru -NoNewWindow
 
 if ($vsProcess.ExitCode -notin @(0, 3010)) {
