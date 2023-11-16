@@ -35,6 +35,7 @@ install-tool zstd v1.5.5
 install-tool minio-client RELEASE.2023-11-15T22-45-58Z
 
 # install last to get latest vs updates
+$env:VS_DOTNET_VERSIONS="6.0;8.0"
 install-tool vs-tools
 
 dotnet build test-cli
