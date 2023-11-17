@@ -8,7 +8,7 @@ if ( -not ($Version -match '^(?<version>\d+\.\d+\.\d+)(\+(?<meta>\d+))?$') ) {
 }
 
 $api = 'https://api.adoptium.net/v3/assets/version'
-$apiArgs = 'heap_size=normal&image_type=jre&os=windows&page=0&page_size=1&project=jdk&vendor=adoptium&architecture=x64&semver=true'
+$apiArgs = 'heap_size=normal&image_type=jre&os=windows&page=0&page_size=1&project=jdk&architecture=x64&semver=true'
 
 $url = "${api}/${Version}?${apiArgs}"
 
