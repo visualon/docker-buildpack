@@ -4,7 +4,8 @@ $ErrorActionPreference = 'Stop'
 
 # 11.0.12+7
 # 17.0.9+9.1
-if ( -not ($Version -match '^(?<version>\d+\.\d+\.\d+)(\+(?<meta>\d+(\.\d+)?))?$') ) {
+# 21.0.1+12.1.LTS
+if ( -not ($Version -match '^(?<version>\d+\.\d+\.\d+)(?:\+(?<meta>\d+(?:\.\d+(?:\.LTS)?)?))?$') ) {
   throw "Invalid $Name version"
 }
 
