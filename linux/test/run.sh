@@ -5,7 +5,7 @@ set -ex
 git --version
 
 # renovate: datasource=github-releases packageName=minio/mc
-install-tool minio-client RELEASE.2023-12-07T22-13-17Z
+install-tool minio-client RELEASE.2023-12-14T00-37-41Z
 
 # renovate: datasource=github-releases packageName=visualon/skopeo-prebuild
 install-tool skopeo 1.14.0
