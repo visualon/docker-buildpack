@@ -32,7 +32,7 @@ ExitOnNativeFailure
 install-tool zstd v1.5.5
 
 # renovate: datasource=github-releases packageName=minio/mc
-install-tool minio-client RELEASE.2023-12-23T08-47-21Z
+install-tool minio-client RELEASE.2023-12-29T20-15-29Z
 
 # install last to get latest vs updates
 $env:VS_DOTNET_VERSIONS="6.0;8.0"
