@@ -6,7 +6,7 @@ $DebugPreference = 'Continue'
 . c:\tools\lib\exec.ps1
 
 # renovate: datasource=github-releases packageName=PowerShell/PowerShell
-install-tool powershell v7.4.0
+install-tool powershell v7.4.1
 pwsh --version
 ExitOnNativeFailure
 
