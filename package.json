@@ -20,7 +20,7 @@
     "build": "run-s 'release:prepare {@}' --",
     "lint": "prettier -c -u '**/*.*'",
     "lint-fix": "prettier -w -u '**/*.*'",
-    "postinstall": "husky install",
+    "prepare": "husky install",
     "push": "run-s 'release:publish {@}' --",
     "release:prepare": "node bin/prepare-release.js",
     "release:publish": "node bin/publish-release.js"
