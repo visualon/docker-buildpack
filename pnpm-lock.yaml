@@ -15,8 +15,8 @@ devDependencies:
     specifier: 0.8.15
     version: 0.8.15
   commander:
-    specifier: 11.1.0
-    version: 11.1.0
+    specifier: 12.0.0
+    version: 12.0.0
   conventional-changelog-conventionalcommits:
     specifier: 7.0.2
     version: 7.0.2
@@ -595,6 +595,11 @@ packages:
   /commander@11.1.0:
     resolution: {integrity: sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==}
     engines: {node: '>=16'}
+    dev: true
+
+  /commander@12.0.0:
+    resolution: {integrity: sha512-MwVNWlYjDTtOjX5PiD7o5pK0UrFU/OYgcJfjjK4RaHZETNtjJqrZa9Y9ds88+A+f+d5lv+561eZ+yCKoS3gbAA==}
+    engines: {node: '>=18'}
     dev: true
 
   /compare-func@2.0.0:
