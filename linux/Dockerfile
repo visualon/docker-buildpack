@@ -1,4 +1,4 @@
-FROM ghcr.io/containerbase/base:10.3.7@sha256:b248c27f18a4f844bc0e86dc2ce60e36250ebd188625dfa4e41f7d34e828e8bc
+FROM ghcr.io/containerbase/base:10.3.8@sha256:e866d0138ebc94a12e6c770d947c44c83beb31db6a94105d7b1806670e71d78d
 
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
