@@ -30,7 +30,7 @@ function install_tool () {
 
   file_name="${TOOL_NAME}-v${TOOL_VERSION}.linux.${arch}"
 
-  checksum_file=$(get_from_url "${base_url}/${TOOL_NAME}-v${TOOL_VERSION}.checksums")
+  checksum_file=$(get_from_url "${base_url}/${TOOL_NAME}-v${TOOL_VERSION}.checksums.txt")
   expected_checksum=$(grep "${file_name}" "${checksum_file}" | cut -d' ' -f1)
 
   file=$(get_from_url "${base_url}/${file_name}" "${TOOL_NAME}" "${expected_checksum}" "sha256sum")
