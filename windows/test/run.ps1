@@ -24,7 +24,7 @@ node --version
 ExitOnNativeFailure
 
 # renovate: datasource=dotnet packageName=dotnet-runtime
-install-tool dotnet 6.0.28
+install-tool dotnet 6.0.29
 
 # renovate: datasource=github-releases packageName=dotnet/docfx
 install-tool docfx v2.59.4
