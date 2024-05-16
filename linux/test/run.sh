@@ -13,7 +13,7 @@ install-tool skopeo 1.15.1
 skopeo inspect docker://registry.fedoraproject.org/fedora:latest | jq -r '.Name+"@"+.Digest'
 
 # renovate: datasource=github-releases packageName=kubernetes/kubernetes
-install-tool kubectl v1.30.0
+install-tool kubectl v1.30.1
 
 # renovate: datasource=github-releases packageName=moby/moby
 install-tool docker v26.1.2
