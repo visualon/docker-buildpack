@@ -25,7 +25,7 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
       - name: enable corepack
         run: corepack enable
@@ -65,7 +65,7 @@ jobs:
       TAG: windows-${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
       # ignore not yet existing images
       - name: Fetch the Docker image
@@ -109,7 +109,7 @@ jobs:
       TAG: linux
 
     steps:
-      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
       - name: docker-config
         uses: containerbase/internal-tools@e24c072060372a197c008175fe7fb5679094f177 # v3.0.93
@@ -145,7 +145,7 @@ jobs:
       packages: write
 
     steps:
-      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
       - name: enable corepack
         run: corepack enable
@@ -185,7 +185,7 @@ jobs:
       packages: write
 
     steps:
-      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
       - name: enable corepack
         run: corepack enable
