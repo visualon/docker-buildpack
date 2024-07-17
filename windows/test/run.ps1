@@ -14,7 +14,7 @@ pwsh --version
 ExitOnNativeFailure
 
 # renovate: datasource=adoptium-java packageName=java-jre
-install-tool java 11.0.23+9
+install-tool java 11.0.24+8
 java --version
 ExitOnNativeFailure
 
