@@ -25,7 +25,7 @@
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["digest"],
       "groupName": "windows docker digests",
-      "matchPackageNames": ["mcr.microsoft.com/windows/{/,}**"]
+      "matchPackageNames": ["mcr.microsoft.com/windows/**"]
     },
     {
       "description": "Trigger fix release for deps updates",
