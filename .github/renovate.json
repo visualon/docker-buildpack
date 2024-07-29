@@ -22,10 +22,10 @@
     },
     {
       "description": "Group windows docker digest updates updates",
-      "matchPackagePrefixes": ["mcr.microsoft.com/windows/"],
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["digest"],
-      "groupName": "windows docker digests"
+      "groupName": "windows docker digests",
+      "matchPackageNames": ["mcr.microsoft.com/windows/**"]
     },
     {
       "description": "Trigger fix release for deps updates",
