@@ -30,5 +30,5 @@ install-tool buildx v0.16.2
 # renovate: datasource=github-releases packageName=kubernetes-sigs/kustomize
 install-tool kustomize 4.0.4
 
-# renovate: datasource=github-releases depName=sops packageName=getsops/sops
+# renovate: datasource=github-releases packageName=getsops/sops
 install-tool sops v3.8.1

@@ -79,7 +79,7 @@ jobs:
         working-directory: ./windows
 
       - name: Test run
-        run: docker-compose --file docker-compose.test.yml run sut
+        run: docker compose --file docker-compose.test.yml run sut
         working-directory: ./windows
         env:
           IMAGE: ${{ env.IMAGE }}:${{ env.TAG }}
@@ -120,7 +120,7 @@ jobs:
         run: docker buildx bake test
 
       - name: Test run
-        run: docker-compose --file docker-compose.test.yml run sut
+        run: docker compose --file docker-compose.test.yml run sut
         working-directory: ./linux
         env:
           IMAGE: ${{ env.IMAGE }}:${{ env.TAG }}
