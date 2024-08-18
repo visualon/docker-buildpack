@@ -165,8 +165,8 @@ packages:
     peerDependencies:
       semantic-release: '>=18.0.0'
 
-  '@semantic-release/github@10.1.4':
-    resolution: {integrity: sha512-dg+JTNp1XHazwAx9HgIuVewStfpv5g7QqwBF09aZVqwVkdTXw4agR/nhWSD0yxDbsx0YCeJTcjUOj92gf8/0Jw==}
+  '@semantic-release/github@10.1.6':
+    resolution: {integrity: sha512-UTW7hNp6nDeJJWrHcNx8dki95d12WVh++PH98rIr7PQxrZrnjtL0ys/rsAt9tOBTWBaCZdj6797RMLkY9tU+ug==}
     engines: {node: '>=20.8.1'}
     peerDependencies:
       semantic-release: '>=20.1.0'
@@ -486,8 +486,8 @@ packages:
     resolution: {integrity: sha512-VyhnebXciFV2DESc+p6B+y0LjSm0krU4OgJN44qFAhBY0TJ+1V61tYD2+wHusZ6F9n5K+vl8k0sTy7PEfV4qpg==}
     engines: {node: '>=16.17'}
 
-  execa@9.3.0:
-    resolution: {integrity: sha512-l6JFbqnHEadBoVAVpN5dl2yCyfX28WoBAGaoQcNmLLSedOxTxcn2Qa83s8I/PA5i56vWru2OHOtrwF7Om2vqlg==}
+  execa@9.3.1:
+    resolution: {integrity: sha512-gdhefCCNy/8tpH/2+ajP9IQc14vXchNdd0weyzSJEFURhRMGncQ+zKFxwjAufIewPEJm9BPOaJnvg2UtlH2gPQ==}
     engines: {node: ^18.19.0 || >=20.5.0}
 
   fast-glob@3.3.2:
@@ -638,8 +638,8 @@ packages:
     resolution: {integrity: sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==}
     engines: {node: '>=16.17.0'}
 
-  human-signals@7.0.0:
-    resolution: {integrity: sha512-74kytxOUSvNbjrT9KisAbaTZ/eJwD/LrbM/kh5j0IhPuJzwuA19dWvniFGwBzN9rVjg+O/e+F310PjObDXS+9Q==}
+  human-signals@8.0.0:
+    resolution: {integrity: sha512-/1/GPCpDUCCYwlERiYjxoczfP0zfvZMU/OWgQPMya9AbAE24vseigFdhAMObpc8Q4lc/kjutPfUddDYyAmejnA==}
     engines: {node: '>=18.18.0'}
 
   husky@9.1.4:
@@ -647,8 +647,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  ignore@5.3.1:
-    resolution: {integrity: sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw==}
+  ignore@5.3.2:
+    resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
     engines: {node: '>= 4'}
 
   import-fresh@3.3.0:
@@ -1423,8 +1423,8 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  type-fest@4.24.0:
-    resolution: {integrity: sha512-spAaHzc6qre0TlZQQ2aA/nGMe+2Z/wyGk5Z+Ru2VUfdNwT6kWO6TjevOlpebsATEG1EIQ2sOiDszud3lO5mt/Q==}
+  type-fest@4.25.0:
+    resolution: {integrity: sha512-bRkIGlXsnGBRBQRAY56UXBm//9qH4bmJfFvq83gSz41N282df+fjy8ofcEgc1sM8geNt5cl6mC2g9Fht1cs8Aw==}
     engines: {node: '>=16'}
 
   typescript@5.5.4:
@@ -1656,7 +1656,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@semantic-release/github@10.1.4(semantic-release@24.0.0(typescript@5.5.4))':
+  '@semantic-release/github@10.1.6(semantic-release@24.0.0(typescript@5.5.4))':
     dependencies:
       '@octokit/core': 6.1.2
       '@octokit/plugin-paginate-rest': 11.3.3(@octokit/core@6.1.2)
@@ -1682,7 +1682,7 @@ snapshots:
     dependencies:
       '@semantic-release/error': 4.0.0
       aggregate-error: 5.0.0
-      execa: 9.3.0
+      execa: 9.3.1
       fs-extra: 11.2.0
       lodash-es: 4.17.21
       nerf-dart: 1.0.0
@@ -2003,13 +2003,13 @@ snapshots:
       signal-exit: 4.1.0
       strip-final-newline: 3.0.0
 
-  execa@9.3.0:
+  execa@9.3.1:
     dependencies:
       '@sindresorhus/merge-streams': 4.0.0
       cross-spawn: 7.0.3
       figures: 6.1.0
       get-stream: 9.0.1
-      human-signals: 7.0.0
+      human-signals: 8.0.0
       is-plain-obj: 4.1.0
       is-stream: 4.0.1
       npm-run-path: 5.3.0
@@ -2115,7 +2115,7 @@ snapshots:
     dependencies:
       dir-glob: 3.0.1
       fast-glob: 3.3.2
-      ignore: 5.3.1
+      ignore: 5.3.2
       merge2: 1.4.1
       slash: 4.0.0
 
@@ -2123,7 +2123,7 @@ snapshots:
     dependencies:
       '@sindresorhus/merge-streams': 2.3.0
       fast-glob: 3.3.2
-      ignore: 5.3.1
+      ignore: 5.3.2
       path-type: 5.0.0
       slash: 5.1.0
       unicorn-magic: 0.1.0
@@ -2175,11 +2175,11 @@ snapshots:
 
   human-signals@5.0.0: {}
 
-  human-signals@7.0.0: {}
+  human-signals@8.0.0: {}
 
   husky@9.1.4: {}
 
-  ignore@5.3.1: {}
+  ignore@5.3.2: {}
 
   import-fresh@3.3.0:
     dependencies:
@@ -2499,7 +2499,7 @@ snapshots:
     dependencies:
       '@babel/code-frame': 7.24.7
       index-to-position: 0.1.2
-      type-fest: 4.24.0
+      type-fest: 4.25.0
 
   parse-ms@4.0.0: {}
 
@@ -2573,14 +2573,14 @@ snapshots:
     dependencies:
       find-up-simple: 1.0.0
       read-pkg: 9.0.1
-      type-fest: 4.24.0
+      type-fest: 4.25.0
 
   read-pkg@9.0.1:
     dependencies:
       '@types/normalize-package-data': 2.4.4
       normalize-package-data: 6.0.2
       parse-json: 8.1.0
-      type-fest: 4.24.0
+      type-fest: 4.25.0
       unicorn-magic: 0.1.0
 
   readable-stream@2.3.8:
@@ -2632,14 +2632,14 @@ snapshots:
     dependencies:
       '@semantic-release/commit-analyzer': 13.0.0(semantic-release@24.0.0(typescript@5.5.4))
       '@semantic-release/error': 4.0.0
-      '@semantic-release/github': 10.1.4(semantic-release@24.0.0(typescript@5.5.4))
+      '@semantic-release/github': 10.1.6(semantic-release@24.0.0(typescript@5.5.4))
       '@semantic-release/npm': 12.0.1(semantic-release@24.0.0(typescript@5.5.4))
       '@semantic-release/release-notes-generator': 14.0.1(semantic-release@24.0.0(typescript@5.5.4))
       aggregate-error: 5.0.0
       cosmiconfig: 9.0.0(typescript@5.5.4)
       debug: 4.3.6
       env-ci: 11.0.0
-      execa: 9.3.0
+      execa: 9.3.1
       figures: 6.1.0
       find-versions: 6.0.0
       get-stream: 6.0.1
@@ -2852,7 +2852,7 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  type-fest@4.24.0: {}
+  type-fest@4.25.0: {}
 
   typescript@5.5.4: {}
 
