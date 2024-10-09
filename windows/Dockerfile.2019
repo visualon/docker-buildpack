@@ -1,7 +1,7 @@
 # escape=`
 
 # Use the latest Windows Server Core image with .NET Framework 4.7.2.
-FROM mcr.microsoft.com/windows/servercore:ltsc2019@sha256:9fd56cf2f100d69f66f0de4af2c4fdd154e9e7be65eec3bf789a8088a881475a
+FROM mcr.microsoft.com/windows/servercore:ltsc2019@sha256:b36581f8c38aa45a8eb1849372603fcbfe97befb3c0ad510e9cfc2ccef8fd3ca
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" `
   org.opencontainers.image.authors="VisualOn GmbH <code@visualon.de>" `
