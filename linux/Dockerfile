@@ -9,8 +9,6 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
 
 RUN install-apt \
   jq \
-  libgcc1 \
-  libicu66 \
   rsync \
   && mkdir -p ~/.ssh \
   && chmod 700 ~/.ssh
