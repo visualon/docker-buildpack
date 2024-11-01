@@ -1,4 +1,4 @@
-FROM ghcr.io/containerbase/base:12.0.10@sha256:30b853b224d0c644371c30de69ddde13edf6077376c8b17d48633d94be5b7c38
+FROM ghcr.io/containerbase/base:13.0.4@sha256:54eb74c1b3426fc3739b92b1da8f16c3294c97a973d654bc0b4822945d6d1b6a
 
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
@@ -9,8 +9,6 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
 
 RUN install-apt \
   jq \
-  libgcc1 \
-  libicu66 \
   rsync \
   && mkdir -p ~/.ssh \
   && chmod 700 ~/.ssh
