@@ -17,9 +17,9 @@ $vsArgs = @(
 )
 
 $dotnetVersions = @(
-  "3.1",
   "6.0",
-  "7.0"
+  "8.0",
+  "9.0"
 )
 
 if ($env:VS_DOTNET_VERSIONS){
