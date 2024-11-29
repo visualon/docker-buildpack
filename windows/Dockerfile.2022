@@ -19,7 +19,7 @@ COPY src\ c:\
 RUN c:\tools\init.cmd
 
 # renovate: datasource=github-releases packageName=kiennq/scoop-better-shimexe
-RUN install-tool shim 2.2.1
+RUN install-tool shim v3.1.2
 
 # renovate: datasource=github-releases packageName=git-for-windows/git
 RUN install-tool git v2.45.2.windows.1
