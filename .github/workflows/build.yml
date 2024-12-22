@@ -56,7 +56,10 @@ jobs:
 
     strategy:
       matrix:
-        os: [2019, 2022]
+        os:
+          - 2019
+          - 2022
+          - 2025
 
     env:
       BASE: ${{ matrix.os }}
