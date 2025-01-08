@@ -4,10 +4,10 @@ if ( -not ($Version -match '^(\d+)\.(\d+)\.\d+$') ) {
   throw "Invalid $Name version"
 }
 
+$file = "$tmp\$Name.zip"
 $major = $Matches.1
 $minor = $Matches.2
 $app = "$apps\$Name"
-$file = "$tmp\$Name.zip"
 
 if ($major -gt 2 -or ($major -eq 2 -and $minor -ge 60)){
   $url = "https://github.com/dotnet/docfx/releases/download/v${Version}/docfx-win-x64-${Version}.zip"
