@@ -10,7 +10,7 @@ $minor = $Matches.2
 $app = "$apps\$Name"
 
 if ($major -gt 2 -or ($major -eq 2 -and $minor -ge 60)){
-  $url = "https://github.com/dotnet/docfx/releases/download/v${Version}/docfx-win-x64-${Version}.zip"
+  $url = "https://github.com/dotnet/docfx/releases/download/v${Version}/docfx-win-x64-v${Version}.zip"
 } else {
   $url = "https://github.com/dotnet/docfx/releases/download/v$Version/docfx.zip"
 }
