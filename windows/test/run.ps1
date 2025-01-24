@@ -9,7 +9,7 @@ $DebugPreference = 'Continue'
 install-tool sops v3.9.3
 
 # renovate: datasource=github-releases packageName=PowerShell/PowerShell
-install-tool powershell v7.4.7
+install-tool powershell v7.5.0
 pwsh --version
 ExitOnNativeFailure
 
