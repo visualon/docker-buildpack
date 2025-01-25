@@ -31,4 +31,4 @@ install-tool buildx v0.20.1
 install-tool kustomize 4.0.4
 
 # renovate: datasource=github-releases packageName=getsops/sops
-install-tool sops v3.9.3
+install-tool sops v3.9.4
