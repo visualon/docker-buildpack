@@ -55,6 +55,7 @@ jobs:
       packages: write
 
     strategy:
+      fail-fast: false
       matrix:
         os:
           - 2019
