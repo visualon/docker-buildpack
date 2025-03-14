@@ -19,7 +19,7 @@ java --version
 ExitOnNativeFailure
 
 # renovate: datasource=node
-install-tool node 20.18.3
+install-tool node 20.19.0
 node --version
 ExitOnNativeFailure
 
