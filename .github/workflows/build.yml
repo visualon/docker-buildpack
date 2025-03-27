@@ -58,7 +58,6 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - 2019
           - 2022
           - 2025
 
