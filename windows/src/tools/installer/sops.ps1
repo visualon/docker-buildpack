@@ -2,11 +2,11 @@
 
 $app = "$apps/$Name"
 $file = "$app/sops.exe"
-$fileName = "sops-v$Version.exe"
+$fileName = "sops-v$Version.amd64.exe"
 $ver = [version] $Version
 
-if ($ver -ge [version]"3.10.0") {
-  $fileName = "sops-v$Version.amd64.exe"
+if ($ver -lt [version]"3.10.0") {
+  $fileName = "sops-v$Version.exe"
 }
 
 $url = "https://github.com/getsops/sops/releases/download/v$Version/$fileName"
