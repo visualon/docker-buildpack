@@ -2,7 +2,14 @@
 
 $app = "$apps/$Name"
 $file = "$app/sops.exe"
-$url = "https://github.com/getsops/sops/releases/download/v$Version/sops-v$Version.exe"
+$fileName = "sops-v$Version.exe"
+$ver = [version] $Version
+
+if ($ver -ge [version]"3.10.0") {
+  $fileName = "sops-v$Version.amd64.exe"
+}
+
+$url = "https://github.com/getsops/sops/releases/download/v$Version/$fileName"
 
 New-Item -ItemType Directory $app | Out-Null
 
