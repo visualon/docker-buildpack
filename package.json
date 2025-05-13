@@ -26,7 +26,7 @@
     "release:publish": "node bin/publish-release.js"
   },
   "devDependencies": {
-    "@semantic-release/exec": "7.0.3",
+    "@semantic-release/exec": "7.1.0",
     "@types/node": "22.15.17",
     "@types/shelljs": "0.8.16",
     "commander": "13.1.0",
