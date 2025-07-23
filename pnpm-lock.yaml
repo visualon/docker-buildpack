@@ -18,8 +18,8 @@ importers:
         specifier: 0.8.17
         version: 0.8.17
       commander:
-        specifier: 13.1.0
-        version: 13.1.0
+        specifier: 14.0.0
+        version: 14.0.0
       conventional-changelog-conventionalcommits:
         specifier: 9.1.0
         version: 9.1.0
