@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@semantic-release/exec": "7.1.0",
-    "@types/node": "22.18.8",
+    "@types/node": "22.18.9",
     "@types/shelljs": "0.8.17",
     "commander": "14.0.1",
     "conventional-changelog-conventionalcommits": "9.1.0",
