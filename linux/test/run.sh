@@ -22,7 +22,7 @@ install-tool docker v28.5.1
 install-tool docker-compose 1.29.2
 
 # renovate: datasource=github-releases packageName=docker/compose
-install-tool docker-compose v2.40.1
+install-tool docker-compose v2.40.2
 
 # renovate: datasource=github-releases packageName=docker/buildx
 install-tool buildx v0.29.1
