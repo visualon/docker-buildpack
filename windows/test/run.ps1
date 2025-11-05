@@ -13,7 +13,7 @@ install-tool powershell v7.5.4
 pwsh --version
 ExitOnNativeFailure
 
-# renovate: datasource=adoptium-java packageName=java-jre
+# renovate: datasource=java-version packageName=java-jre?os=windows&architecture=x64
 install-tool java 21.0.8+9.0.LTS
 java --version
 ExitOnNativeFailure
