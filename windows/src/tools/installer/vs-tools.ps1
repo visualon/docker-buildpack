@@ -46,14 +46,6 @@ install-shim dotnet "${env:ProgramFiles}\dotnet\dotnet.exe"
 # install-shim vswhere "${env:ProgramFiles(X86)}\Microsoft Visual Studio\Installer\vswhere.exe"
 Write-Debug "Creating shims done"
 
-Write-Debug "VS Test ..."
-dotnet nuget list source | Out-Null
-ExitOnNativeFailure
-dotnet --info
-ExitOnNativeFailure
-msbuild --version
-ExitOnNativeFailure
-Write-Debug "VS Test done"
 
 Write-Debug "VS Cleanup ..."
 
@@ -62,3 +54,12 @@ $vsi | Get-ChildItem -Directory | Remove-Item -Force -Recurse
 $vsi | Get-ChildItem -File | Where-Object { $_.Name -ne 'vswhere.exe' } | Remove-Item -Force -Recurse
 
 Write-Debug "VS Cleanup done"
+
+Write-Debug "VS Test ..."
+dotnet nuget list source | Out-Null
+ExitOnNativeFailure
+dotnet --info
+ExitOnNativeFailure
+msbuild --version
+ExitOnNativeFailure
+Write-Debug "VS Test done"
