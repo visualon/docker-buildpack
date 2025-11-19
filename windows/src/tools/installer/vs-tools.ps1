@@ -12,7 +12,7 @@ $vsArgs = @(
   "--installPath", "C:\BuildTools",
   "--add", "Microsoft.VisualStudio.Workload.MSBuildTools",
   "--add", "Microsoft.VisualStudio.Workload.OfficeBuildTools",
-  "--add", "Microsoft.VisualStudio.Workload.WebBuildTools",
+  "--add", "Microsoft.VisualStudio.Workload.WebBuildTools"
 )
 
 $dotnetVersions = @(
