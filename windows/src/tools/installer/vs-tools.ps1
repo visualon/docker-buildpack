@@ -48,6 +48,10 @@ Write-Debug "Creating shims done"
 Write-Debug "VS Test ..."
 dotnet nuget list source | Out-Null
 ExitOnNativeFailure
+dotnet --info
+ExitOnNativeFailure
+msbuild --version
+ExitOnNativeFailure
 Write-Debug "VS Test done"
 
 Write-Debug "VS Cleanup ..."
