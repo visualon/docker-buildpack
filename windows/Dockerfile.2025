@@ -24,7 +24,7 @@ RUN install-tool shim 2.2.1
 # renovate: datasource=github-releases packageName=git-for-windows/git
 RUN install-tool git v2.45.2.windows.1
 
-RUN install-tool vc-redist 17
+RUN install-tool vc-redist 14
 
 # Define the entry point for the docker container.
 #CMD ["pwsh"]
