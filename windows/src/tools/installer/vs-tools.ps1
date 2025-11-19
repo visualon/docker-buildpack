@@ -1,25 +1,23 @@
 #Requires -Version 5.1
 
 Write-Debug "Downloading installer ..."
-Invoke-WebRequest -OutFile "$tmp\vs_BuildTools.exe" https://aka.ms/vs/17/release/vs_buildtools.exe
+Invoke-WebRequest -OutFile "$tmp\vs_BuildTools.exe" https://aka.ms/vs/stable/vs_BuildTools.exe
 Write-Debug "Downloading installer done"
 #curl -sSfLo c:\TEMP\collect.exe https://aka.ms/vscollect.exe
 
 # https://docs.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-build-tools?view=vs-2022
-Write-Debug "Installing vs 2022 build tools"
+Write-Debug "Installing vs stable build tools"
 $vsArgs = @(
   "--quiet", "--wait", "--norestart", "--nocache",
   "--installPath", "C:\BuildTools",
-  "--add", "Microsoft.VisualStudio.Workload.MSBuildTools"
-  "--add", "Microsoft.VisualStudio.Workload.WebBuildTools"
+  "--add", "Microsoft.VisualStudio.Workload.MSBuildTools",
   "--add", "Microsoft.VisualStudio.Workload.OfficeBuildTools",
-  "--add", "Microsoft.NetCore.Component.SDK"
+  "--add", "Microsoft.VisualStudio.Workload.WebBuildTools",
 )
 
 $dotnetVersions = @(
-  "6.0",
   "8.0",
-  "9.0"
+  "10.0"
 )
 
 if ($env:VS_DOTNET_VERSIONS){
