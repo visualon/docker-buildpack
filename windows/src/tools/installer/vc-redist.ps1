@@ -5,7 +5,7 @@ if ( -not ($Version -match '^(\d+)$') ) {
 }
 
 Write-Debug "Downloading installer ..."
-Invoke-WebRequest -OutFile "$tmp\vc_redist.exe" https://aka.ms/vs/$Version/release/vc_redist.x64.exe
+Invoke-WebRequest -OutFile "$tmp\vc_redist.exe" https://aka.ms/vc$Version/vc_redist.x64.exe
 Write-Debug "Downloading installer done"
 
 Write-Debug "Installing vc redist"
