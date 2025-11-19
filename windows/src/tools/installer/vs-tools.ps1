@@ -1,26 +1,22 @@
 #Requires -Version 5.1
 
 Write-Debug "Downloading installer ..."
-Invoke-WebRequest -OutFile "$tmp\vs_BuildTools.exe" https://aka.ms/vs/17/release/vs_buildtools.exe
+Invoke-WebRequest -OutFile "$tmp\vs_BuildTools.exe" https://aka.ms/vs/stable/vs_BuildTools.exe
 Write-Debug "Downloading installer done"
 #curl -sSfLo c:\TEMP\collect.exe https://aka.ms/vscollect.exe
 
-# https://docs.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-build-tools?view=vs-2022
-Write-Debug "Installing vs 2022 build tools"
+# https://learn.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-build-tools?view=visualstudio
+Write-Debug "Installing vs stable build tools"
 $vsArgs = @(
   "--quiet", "--wait", "--norestart", "--nocache",
   "--installPath", "C:\BuildTools",
-  "--add", "Microsoft.VisualStudio.Workload.MSBuildTools"
-  "--add", "Microsoft.VisualStudio.Workload.WebBuildTools"
+  "--add", "Microsoft.VisualStudio.Workload.MSBuildTools",
   "--add", "Microsoft.VisualStudio.Workload.OfficeBuildTools",
+  "--add", "Microsoft.VisualStudio.Workload.WebBuildTools",
   "--add", "Microsoft.NetCore.Component.SDK"
 )
 
-$dotnetVersions = @(
-  "6.0",
-  "8.0",
-  "9.0"
-)
+$dotnetVersions = @()
 
 if ($env:VS_DOTNET_VERSIONS){
   $dotnetVersions = $env:VS_DOTNET_VERSIONS.Split(";")
@@ -50,10 +46,6 @@ install-shim dotnet "${env:ProgramFiles}\dotnet\dotnet.exe"
 # install-shim vswhere "${env:ProgramFiles(X86)}\Microsoft Visual Studio\Installer\vswhere.exe"
 Write-Debug "Creating shims done"
 
-Write-Debug "VS Test ..."
-dotnet nuget list source | Out-Null
-ExitOnNativeFailure
-Write-Debug "VS Test done"
 
 Write-Debug "VS Cleanup ..."
 
@@ -62,3 +54,12 @@ $vsi | Get-ChildItem -Directory | Remove-Item -Force -Recurse
 $vsi | Get-ChildItem -File | Where-Object { $_.Name -ne 'vswhere.exe' } | Remove-Item -Force -Recurse
 
 Write-Debug "VS Cleanup done"
+
+Write-Debug "VS Test ..."
+dotnet nuget list source | Out-Null
+ExitOnNativeFailure
+dotnet --info
+ExitOnNativeFailure
+msbuild --version
+ExitOnNativeFailure
+Write-Debug "VS Test done"
