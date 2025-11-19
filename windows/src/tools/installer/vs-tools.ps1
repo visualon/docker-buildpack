@@ -15,10 +15,7 @@ $vsArgs = @(
   "--add", "Microsoft.VisualStudio.Workload.WebBuildTools"
 )
 
-$dotnetVersions = @(
-  "8.0",
-  "10.0"
-)
+$dotnetVersions = @()
 
 if ($env:VS_DOTNET_VERSIONS){
   $dotnetVersions = $env:VS_DOTNET_VERSIONS.Split(";")
