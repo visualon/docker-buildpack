@@ -5,7 +5,7 @@ Invoke-WebRequest -OutFile "$tmp\vs_BuildTools.exe" https://aka.ms/vs/stable/vs_
 Write-Debug "Downloading installer done"
 #curl -sSfLo c:\TEMP\collect.exe https://aka.ms/vscollect.exe
 
-# https://docs.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-build-tools?view=vs-2022
+# https://learn.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-build-tools?view=visualstudio
 Write-Debug "Installing vs stable build tools"
 $vsArgs = @(
   "--quiet", "--wait", "--norestart", "--nocache",
