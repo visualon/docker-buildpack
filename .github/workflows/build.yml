@@ -72,6 +72,12 @@ jobs:
     steps:
       - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
 
+      - name: df
+        run: |
+          df -h
+          docker system df
+          docker image ls
+
       # ignore not yet existing images
       - name: Fetch the Docker image
         run: |
@@ -88,6 +94,12 @@ jobs:
         working-directory: ./windows
         env:
           IMAGE: ${{ env.IMAGE }}:${{ env.TAG }}
+
+      - name: df
+        run: |
+          df -h
+          docker system df
+          docker image ls
 
       - name: Log into registry
         if: github.ref == 'refs/heads/main'
