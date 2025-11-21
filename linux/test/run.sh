@@ -19,9 +19,6 @@ install-tool kubectl v1.34.2
 install-tool docker v28.5.2
 
 # renovate: datasource=github-releases packageName=docker/compose
-install-tool docker-compose 1.29.2
-
-# renovate: datasource=github-releases packageName=docker/compose
 install-tool docker-compose v2.40.3
 
 # renovate: datasource=github-releases packageName=docker/buildx
