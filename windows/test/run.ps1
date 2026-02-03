@@ -14,7 +14,7 @@ pwsh --version
 ExitOnNativeFailure
 
 # renovate: datasource=java-version packageName=java-jre?os=windows&architecture=x64
-install-tool java 21.0.9+10.0.LTS
+install-tool java 21.0.10+7.0.LTS
 java --version
 ExitOnNativeFailure
 
