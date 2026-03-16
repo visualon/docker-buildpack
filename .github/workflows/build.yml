@@ -129,7 +129,7 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: docker-config
-        uses: containerbase/internal-tools@6cd0a2765a5f063602ad537f8f28bf4970169fa5 # v4.4.2
+        uses: containerbase/internal-tools@eaf6cb9f3d170809caa0f8c4bd777d2e97f087b4 # v4.4.6
         with:
           command: docker-config
 
