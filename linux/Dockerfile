@@ -9,6 +9,7 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
 
 RUN install-apt \
   jq \
+  libatomic1 \
   rsync \
   && mkdir -p ~/.ssh \
   && chmod 700 ~/.ssh
