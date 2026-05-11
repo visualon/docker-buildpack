@@ -6,7 +6,7 @@ $DebugPreference = 'Continue'
 . c:\tools\lib\exec.ps1
 
 # renovate: datasource=github-releases packageName=getsops/sops
-install-tool sops v3.12.2
+install-tool sops v3.13.0
 
 # renovate: datasource=github-releases packageName=PowerShell/PowerShell
 install-tool powershell v7.6.1
