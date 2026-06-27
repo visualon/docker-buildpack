@@ -157,7 +157,7 @@ jobs:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
 
       - name: docker-config
-        uses: containerbase/internal-tools@394177527928f7431caa33e838cf6642fea08c4c # v4.6.57
+        uses: containerbase/internal-tools@e1d243e1b4abea1333cee583be0e84f01caf74e0 # v4.6.58
         with:
           command: docker-config
 
