@@ -22,6 +22,7 @@ New-Item -Path $app -ItemType "directory" | Out-Null
 Expand-Archive -Path $file -DestinationPath $app
 
 Install-Shim -Name git -Path cmd\git.exe
+Install-Shim -Name sh -Path mingw64\bin\ash.exe
 
 git config --system core.autocrlf input
 ExitOnNativeFailure
@@ -32,4 +33,7 @@ ExitOnNativeFailure
 git config --system --replace-all credential.helper '""'
 ExitOnNativeFailure
 git config --system init.defaultBranch main
+ExitOnNativeFailure
+
+sh --help
 ExitOnNativeFailure
