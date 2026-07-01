@@ -22,7 +22,7 @@ New-Item -Path $app -ItemType "directory" | Out-Null
 Expand-Archive -Path $file -DestinationPath $app
 
 Install-Shim -Name git -Path cmd\git.exe
-Install-Shim -Name sh -Path mingw64\bin\ash.exe
+Install-Shim -Name sh -Path mingw64\bin\ash.exe -Tool $Name
 
 git config --system core.autocrlf input
 ExitOnNativeFailure
