@@ -30,7 +30,7 @@
     "@types/node": "22.20.0",
     "@types/shelljs": "0.10.0",
     "commander": "15.0.0",
-    "conventional-changelog-conventionalcommits": "10.2.0",
+    "conventional-changelog-conventionalcommits": "10.2.1",
     "husky": "9.1.7",
     "lint-staged": "17.0.8",
     "npm-run-all2": "9.0.2",
