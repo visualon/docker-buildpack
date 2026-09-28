@@ -27,7 +27,7 @@ ExitOnNativeFailure
 install-tool dotnet 8.0.31
 
 # renovate: datasource=github-releases packageName=dotnet/docfx
-install-tool docfx v2.78.5
+install-tool docfx v2.78.6
 docfx --version
 ExitOnNativeFailure
 
