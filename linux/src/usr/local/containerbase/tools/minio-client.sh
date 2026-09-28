@@ -11,9 +11,9 @@ set -e
 # fi
 
 DISTRO=linux-amd64
-URL="https://dl.minio.io/client/mc/release/${DISTRO}/archive/mc.${TOOL_VERSION}"
+URL="https://github.com/minio/mc/releases/download/${TOOL_VERSION}/mc.${DISTRO}.${TOOL_VERSION}"
 
-curl -sL "$URL" -o /usr/local/bin/mc
+curl -sSfL "$URL" -o /usr/local/bin/mc
 chmod +x /usr/local/bin/mc
 
 mc --version
